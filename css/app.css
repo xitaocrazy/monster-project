@@ -1,0 +1,28 @@
+body{
+    background-color: #5BD6A3;
+}
+
+.nav-verde-branco, .nav-verde-branco *{
+    background-color: #1FA36C;
+    color: #FFF;
+}
+
+.titulo {
+    padding-top: 100px;
+    font-family: Poppins;
+    font-size: 55px;
+    font-weight: bold;
+    line-height: 1.16;
+    text-align: center;
+    color: #ffffff;
+    margin: 0 auto; 
+    text-align: center
+}
+
+.conteudo {
+    font-weight: bold;
+    text-align: center;
+    color: #000;
+    margin: 0 auto; 
+    text-align: center
+}
