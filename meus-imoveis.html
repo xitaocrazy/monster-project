@@ -1,0 +1,206 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title>Minha casa Nova</title>
+
+    <link rel="stylesheet" href="css/bootstrap.css">
+    <link rel="stylesheet" href="css/bootstrap-theme.css">
+    <link rel="stylesheet" href="css/app.css">
+    <link href="https://fonts.googleapis.com/css?family=Poppins:400,700'" rel="stylesheet">
+
+	<script src="js/jquery.1.12.4.min.js"></script>
+    <script src="js/bootstrap.js"></script>
+    <script src="js/knockout-3.4.2.js"></script>
+</head>
+<body>
+<header>
+    <nav class="nav-verde-branco navbar navbar-default">
+        <div class="container-fluid">
+            <div class="navbar-header">
+                <a class="navbar-brand" href="#">
+                    <img alt="Home" src="img/casinha-branca.png">
+                </a>
+            </div>
+        
+            <div class="collapse navbar-collapse">
+                <ul class="nav navbar-nav ">
+                    <li class="active">
+                        <h2>Minha Casa Nova</h2>
+                    </li>                      
+                </ul>
+                <ul class="nav navbar-nav navbar-right">
+                    <li>
+                        <a href="#">Cadastrar Imóveis</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+</header>
+
+<main>
+    <!--Dados da incorporadora/imobiliaria-->
+    <div class="row-fluid">
+        <div class="titulo-meus-imoveis">
+            Imobiliária Vendo Imóvel            
+        </div>
+        <div class="conteudo">   
+            <h3>CNPJ: 18.814.849/0001-64.</h3>
+        </div>
+    </div>
+    
+    <div class="row conteudo">
+        <div class="col-md-4">
+            <h3>Apartamento de 2 Quartos em Canas Vieiras</h3>
+            <div id="dados-do-apartamento-canas" data-bind="visible: mostrarDadosDoApartamentoCanas">                
+                <img src="img/apartamento.jpg" class="img-responsive" alt="apartamento-canas">
+                <h3>Valor: R$200000,00</h3>
+                <h4>Tipo: Apartamento</h4>
+                <h4>Cidade: Florianópolis</h4>
+                <h4>Bairro: Canas Vieiras</h4>
+                <h4>Quartos: 2</h4>
+                <h4>Banheiros: 1</h4>
+                <h4>Vagas: 1</h4>
+                <h4>Matchs de perfil: 23</h4>            
+                <div>
+                    <button type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#myModal" data-bind="text: mensagemOfertaDeLeads"></button>
+                </div>
+                <a href="#" data-bind="text: mensagemLeadsComprados, click: verLeads"></a>
+            </div>
+            <div id="leads-do-apartamento-canas" data-bind="visible: mostrarDadosDoApartamentoCanas() == false">
+                <div class="panel panel-default">
+                    <div class="panel-heading">Leads do Imóvel</div>
+                    <table class="table">
+                        <tr>
+                            <th>Nome</th>
+                            <th>E-mail</th> 
+                            <th>Telefone</th>
+                            <th>Melhor Horário</th>
+                        </tr>
+                        <tr>
+                            <td>João da Silva</td>
+                            <td>joaodasilva@gmail.com</td>
+                            <td>999999999</td>
+                            <td>Entre 2 e 3.</td>
+                        </tr>
+                        <tr>
+                            <td>José da Silva</td>
+                            <td>zedasilva@gmail.com</td>
+                            <td>888888888</td>
+                            <td>Pela manhã.</td>
+                        </tr>
+                        <tr>
+                            <td>João José da Silva</td>
+                            <td>jjdasilva@gmail.com</td>
+                            <td>777777777</td>
+                            <td>A tarde.</td>
+                        </tr>
+                        <!-- ko if: leadsComprados() == 5 -->
+                            <tr>
+                                <td>José de Souza</td>
+                                <td>zedesouza@gmail.com</td>
+                                <td>998888888</td>
+                                <td>Pela manhã.</td>
+                            </tr>
+                            <tr>
+                                <td>José de Souza</td>
+                                <td>zedesouza@gmail.com</td>
+                                <td>997777777</td>
+                                <td>A tarde.</td>
+                            </tr>
+                        <!-- /ko -->
+                    </table>
+                </div>
+                <br>
+                <div>
+                    <button type="button" class="btn btn-primary btn-lg" data-bind="click: mostrarDadosDoImovel">Fechar Leads</button>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <h3>Casa de 2 pisos em Canas Vieiras</h3>
+            <img src="img/casa-2-pisos-2-quartos-garagem.jpg" class="img-responsive" alt="apartamento-casa-2-pisos">
+            <h3>Valor: R$3000000,00</h3>
+            <h4>Tipo: Casa 2 pisos ou mais</h4>
+            <h4>Cidade: Florianópolis</h4>
+            <h4>Bairro: Canas Vieiras</h4>
+            <h4>Quartos: 2</h4>
+            <h4>Banheiros: 2</h4>
+            <h4>Vagas: 1</h4>
+        </div>
+        <div class="col-md-4">
+            <h3>Casa Térrea em Canas Vieiras</h3>
+            <img src="img/casa-terrea-2-quartos-garagem.jpg" class="img-responsive" alt="apartamento-casa-terrea">
+            <h3>Valor: R$160000,00</h3>
+            <h4>Tipo: Casa Térrea</h4>
+            <h4>Cidade: Florianópolis</h4>
+            <h4>Bairro: Canas Vieiras</h4>
+            <h4>Quartos: 2</h4>
+            <h4>Banheiros: 1</h4>
+            <h4>Vagas: 1</h4>
+        </div>
+    </div>    
+</main>
+
+<div class="modal fade" tabindex="-1" role="dialog" id="myModal">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                <h4 class="modal-title">Comprar Leads</h4>
+            </div>
+            <div class="modal-body">
+                <p>Total de Leads para adquirir: 2.</p>
+                <p>Valor da compra: R$2,00.</p>
+                <p>Deseja confirmar a compra dos novos leads para este imóvel?</p>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">Cancelar</button>
+                <button type="button" class="btn btn-primary" data-dismiss="modal" data-bind="click: comprarLeads">Comprar</button>
+            </div>
+
+        </div>
+    </div>
+</div>
+</body>
+
+<script type="text/javascript">
+    var viewModel = function () {
+        self = this;
+
+        self.novosLeads = ko.observable(2);  
+        self.leadsComprados = ko.observable(3); 
+
+        self.mostrarDadosDoApartamentoCanas = ko.observable(true); 
+        
+        self.mensagemOfertaDeLeads = ko.computed(function(){
+            return self.novosLeads() + ' Novos usuários interessados. Comprar leads.';
+        }, this);
+
+        self.mensagemLeadsComprados = ko.computed(function(){
+            return self.leadsComprados() + ' Leads Comprados.';
+        }, this);
+
+        self.comprarLeads = function(){
+            var leads = self.leadsComprados() + self.novosLeads();
+            self.leadsComprados(leads); 
+            self.novosLeads(0)
+        }   
+
+        self.verLeads = function(){
+            self.mostrarDadosDoApartamentoCanas(false);
+        }  
+
+        self.mostrarDadosDoImovel = function(){
+            self.mostrarDadosDoApartamentoCanas(true);
+        } 
+    }
+
+    var vm = new viewModel();
+    ko.applyBindings(vm);
+</script>
+</html>

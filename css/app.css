@@ -8,7 +8,7 @@ body{
 }
 
 .titulo {
-    padding-top: 100px;
+    padding-top: 60px;
     font-family: Poppins;
     font-size: 55px;
     font-weight: bold;
@@ -23,6 +23,18 @@ body{
     font-weight: bold;
     text-align: center;
     color: #000;
+    margin: 0 auto; 
+    text-align: center
+}
+
+.titulo-meus-imoveis {
+    padding-top: 15px;
+    font-family: Poppins;
+    font-size: 55px;
+    font-weight: bold;
+    line-height: 1.16;
+    text-align: center;
+    color: #ffffff;
     margin: 0 auto; 
     text-align: center
 }
