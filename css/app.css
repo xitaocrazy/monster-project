@@ -1,40 +1,45 @@
+html{
+    height: 100%;
+}
+
 body{
-    background-color: #5BD6A3;
-}
-
-.nav-verde-branco, .nav-verde-branco *{
-    background-color: #1FA36C;
-    color: #FFF;
-}
-
-.titulo {
-    padding-top: 60px;
-    font-family: Poppins;
-    font-size: 55px;
-    font-weight: bold;
-    line-height: 1.16;
-    text-align: center;
+    height: 100%;
+    background-color: #464444;
     color: #ffffff;
-    margin: 0 auto; 
-    text-align: center
 }
 
-.conteudo {
-    font-weight: bold;
+header {
     text-align: center;
-    color: #000;
-    margin: 0 auto; 
-    text-align: center
+    background-image: url('../img/sofa-header.png');
+    background-size: cover;
+    background-position: top center;
+    height: 30%; 
 }
 
-.titulo-meus-imoveis {
-    padding-top: 15px;
-    font-family: Poppins;
-    font-size: 55px;
-    font-weight: bold;
-    line-height: 1.16;
+main {
     text-align: center;
-    color: #ffffff;
-    margin: 0 auto; 
-    text-align: center
+}
+
+#ou {
+    text-align: center;
+    padding-top: 20%;
+    color: #E65290;
+    font-size: 20px;
+    font-weight: bold;    
+}
+
+.nome-email {
+    text-align: left !important;
+    padding: 10px;
+    margin-left: 33.33333333%;
+    width: 33.33333333%;
+    text-align: center;
+}
+
+footer {
+    background-color: #E4E0E0;
+    padding-top: 20px;
+    padding-bottom: 10px;
+    color: #464444;
+    text-align: center;
 }

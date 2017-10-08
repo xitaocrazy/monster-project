@@ -18,393 +18,217 @@
 </head>
 <body>
 <header>
-    <nav class="nav-verde-branco navbar navbar-default">
-        <div class="container-fluid">
-            <div class="navbar-header">
-                <a class="navbar-brand" href="#">
-                    <img alt="Home" src="img/casinha-branca.png">
-                </a>
-            </div>
-        
-            <div class="collapse navbar-collapse">
-                <ul class="nav navbar-nav ">
-                    <li class="active">
-                        <h2>Minha Casa Nova</h2>
-                    </li>                      
-                </ul>
-            </div>
-        </div>
-    </nav>
+    <div class="container-fluid">
+        <h1>O melhor plano de vida para</h1>
+        <h1>comprar seu primeiro imóvel</h1>
+    </div>
 </header>
 
 <main>
-    <!--Passo 0: Página inicial-->
-    <div class="row-fluid" data-bind="if: passo() === 0">
-        <div class="titulo">
-            Encontre já o seu primeiro imóvel!            
-        </div>
-        <div class="conteudo">   
-            <h3>O Minha Casa Nova te ajuda a encontrar o tão sonhado imóvel.</h3>
-            <h3>Além disso, ele te ajuda a planejar a melhor forma para adquiri-lo.</h3>         
-            <button class="btn btn-success btn-sm" data-bind="click: andarPasso">Começar</button>
-        </div>
-    </div>
-
-    <!--Passo 1: Tipo de Imóvel-->
-    <div class="row-fluid" data-bind="if: passo() === 1">
-        <div class="titulo">
-            Que tipos de imóveis você está buscando?                
-        </div>
-        <div class="conteudo">
-            <div class="checkbox">
-                <label>
-                    <input type="checkbox" value="Casa Térrea" data-bind="checked: tiposDeImoveis" />Casa Térrea
-                </label>                    
-            </div>
-            <div class="checkbox">
-                <label>
-                    <input type="checkbox" value="Casa 2 pisos ou mais" data-bind="checked: tiposDeImoveis" />Casa 2 pisos ou mais
-                </label>                
-            </div>
-            <div class="checkbox">
-                <label>
-                    <input type="checkbox" value="Apartamento" data-bind="checked: tiposDeImoveis" />Apartamento
-                </label>                    
-            </div>
-            <div class="checkbox">
-                <label>
-                    <input type="checkbox" value="Chacara" data-bind="checked: tiposDeImoveis" />Chácara
-                </label>                    
-            </div>
-            
-            <button class="btn btn-default btn-sm" data-bind="click: voltarPasso">Voltar</button>
-            <button class="btn btn-success btn-sm" data-bind="click: andarPasso">Próximo</button>
-        </div>
-    </div>
-
-    <!--Passo 2: Número de quartos-->
-    <div class="row-fluid" data-bind="if: passo() === 2">
-        <div class="titulo">
-            Quantos quartos deseja?            
-        </div>
-        <div class="conteudo">   
-            <div class="radio">
-                <label>
-                    <input type="radio" value="1" data-bind="checked: numeroDeQuartos" />Apenas 1 quarto
-                </label>                    
-            </div>
-            <div class="radio">
-                <label>
-                    <input type="radio" value="1 ou mais" data-bind="checked: numeroDeQuartos" />1 quarto ou mais
-                </label>                
-            </div>
-            <div class="radio">
-                <label>
-                    <input type="radio" value="2" data-bind="checked: numeroDeQuartos" />2 quartos
-                </label>                    
-            </div>
-            <div class="radio">
-                <label>
-                    <input type="radio" value="2 ou mais" data-bind="checked: numeroDeQuartos" />2 quartos ou mais
-                </label>                    
-            </div>
-            
-            <button class="btn btn-default btn-sm" data-bind="click: voltarPasso">Voltar</button>
-            <button class="btn btn-success btn-sm" data-bind="click: andarPasso">Próximo</button>
-        </div>
-    </div>
-
-    <!--Passo 3: Número de banheiros-->
-    <div class="row-fluid" data-bind="if: passo() === 3">
-        <div class="titulo">
-            Quantos banheiros deseja?            
-        </div>
-        <div class="conteudo">   
-            <div class="radio">
-                <label>
-                    <input type="radio" value="1" data-bind="checked: numeroDeBanheiros" />Apenas 1 banheiro
-                </label>                    
-            </div>
-            <div class="radio">
-                <label>
-                    <input type="radio" value="1 ou mais" data-bind="checked: numeroDeBanheiros" />1 banheiro ou mais
-                </label>                
-            </div>
-            <div class="radio">
-                <label>
-                    <input type="radio" value="2" data-bind="checked: numeroDeBanheiros" />2 banheiros
-                </label>                    
-            </div>
-            <div class="radio">
-                <label>
-                    <input type="radio" value="2 ou mais" data-bind="checked: numeroDeBanheiros" />2 banheiros ou mais
-                </label>                    
-            </div>
-            
-            <button class="btn btn-default btn-sm" data-bind="click: voltarPasso">Voltar</button>
-            <button class="btn btn-success btn-sm" data-bind="click: andarPasso">Próximo</button>
-        </div>
-    </div>
-
-    <!--Passo 4: Número de vagas-->
-    <div class="row-fluid" data-bind="if: passo() === 4">
-        <div class="titulo">
-            Quantas vagas de garagem?            
-        </div>
-        <div class="conteudo">   
-            <div class="radio">
-                <label>
-                    <input type="radio" value="0" data-bind="checked: numeroDeVagas" />Não preciso
-                </label>                    
-            </div>
-            <div class="radio">
-                <label>
-                    <input type="radio" value="1" data-bind="checked: numeroDeVagas" />Apenas 1 vaga
-                </label>                    
-            </div>
-            <div class="radio">
-                <label>
-                    <input type="radio" value="1 ou mais" data-bind="checked: numeroDeVagas" />1 vaga ou mais
-                </label>                
-            </div>
-            <div class="radio">
-                <label>
-                    <input type="radio" value="2" data-bind="checked: numeroDeVagas" />2 vagas
-                </label>                    
-            </div>
-            <div class="radio">
-                <label>
-                    <input type="radio" value="2 ou mais" data-bind="checked: numeroDeVagas" />2 vagas ou mais
-                </label>                    
-            </div>
-            
-            <button class="btn btn-default btn-sm" data-bind="click: voltarPasso">Voltar</button>
-            <button class="btn btn-success btn-sm" data-bind="click: andarPasso">Próximo</button>
-        </div>
-    </div>
-
-    <!--Passo 5: Valor a pagar-->
-    <div class="row-fluid" data-bind="if: passo() === 5">
-        <div class="titulo">
-            Quanto você está disposto a pagar pelo imóvel?            
-        </div>
-        <div class="conteudo">                       
-            <div class="radio">
-                <label>
-                    <input type="radio" value="100000" data-bind="checked: valorMaximo" />Até R$100.000,00
-                </label>                    
-            </div>
-            <div class="radio">
-                <label>
-                    <input type="radio" value="150000" data-bind="checked: valorMaximo" />Até R$150.000,00
-                </label>                    
-            </div>
-            <div class="radio">
-                <label>
-                    <input type="radio" value="200000" data-bind="checked: valorMaximo" />Até R$200.000,00
-                </label>                
-            </div>
-            <div class="radio">
-                <label>
-                    <input type="radio" value="250000" data-bind="checked: valorMaximo" />Até R$250.000,00
-                </label>                    
-            </div>
-            <div class="radio">
-                <label>
-                    <input type="radio" value="300000" data-bind="checked: valorMaximo" />Até R$300.000,00
-                </label>                    
-            </div>
-            <div class="radio">
-                <label>
-                    <input type="radio" value="350000" data-bind="checked: valorMaximo" />Até R$350.000,00
-                </label>                    
-            </div>
-            <div class="radio">
-                <label>
-                    <input type="radio" value="0" data-bind="checked: valorMaximo" />Mais de R$350.000,00
-                </label>                    
-            </div>
-            
-            <button class="btn btn-default btn-sm" data-bind="click: voltarPasso">Voltar</button>
-            <button class="btn btn-success btn-sm" data-bind="click: andarPasso">Próximo</button>
-        </div>
-    </div>
-
-    <!--Passo 6: Qual cidade-->
-    <div class="row-fluid" data-bind="if: passo() === 6">
-        <div class="titulo">
-            Em qual cidade?            
-        </div>
-        <div class="conteudo">   
-            <select class="form-control" data-bind="options: cidades, value: cidadeSelecionada, valueAllowUnset: false"></select>
-            <button class="btn btn-default btn-sm" data-bind="click: voltarPasso">Voltar</button>
-            <button class="btn btn-success btn-sm" data-bind="click: andarPasso">Próximo</button>
-        </div>
-    </div>
-
-    <!--Passo 7: Qual bairro-->
-    <div class="row-fluid" data-bind="if: passo() === 7">
-        <div class="titulo">
-            Quais bairros são do seu interesse?            
-        </div>
-        <div class="conteudo">   
-            <select multiple class="form-control" data-bind="options: bairros, selectedOptions: bairrosSelecionados" multiple="true"></select>
-            
-            <button class="btn btn-default btn-sm" data-bind="click: voltarPasso">Voltar</button>
-            <button class="btn btn-success btn-sm" data-bind="click: andarPasso, enable: deveSeguirParaDadosPessoais">Próximo</button>
-        </div>
-    </div>
-
-    <!--Passo 8: Dados Pessoais-->
-    <div class="row-fluid" data-bind="if: passo() === 8">
-        <div class="titulo">
-            Quais bairros são do seu interesse?            
-        </div>
-        <div class="conteudo">   
-            <h3>Seus dados são confidenciais e não serão repassados a nenhum terceiro sem o sei consentimento.</h3>
-            <h3>Utilizaremos as informações para lhe enviar as ofertas que estão de acordo com o seu perfil.</h3>
-            <input type="text" id="nome" class="form-control" required pattern="^([a-zA-ZáéíóúàâêôãõüçÁÉÍÓÚÀÂÊÔÃÕÜÇ ]|\n){2,50} ([a-zA-ZáéíóúàâêôãõüçÁÉÍÓÚÀÂÊÔÃÕÜÇ ]|\n){2,50}$" placeholder="Nome Completo" data-bind="textInput: nome">
-            <span id="helpBlock" class="help-block" data-bind="visible: temErroNoNome">Informe um nome válido.</span>                
-            <input type="email" id="email" class="form-control" required pattern="^[A-Za-z0-9](([_.-]?[a-zA-Z0-9]+)*)@([A-Za-z0-9]+)(([.-]?[a-zA-Z0-9]+)*)([.][A-Za-z]{2,4})$" placeholder="E-mail" data-bind="textInput: email">
-            <span id="helpBlock" class="help-block" data-bind="visible: temErroNoEmail">Informe um e-mail válido.</span>                
-            <button class="btn btn-default btn-sm" data-bind="click: voltarPasso">Voltar</button>
-            <button class="btn btn-success btn-sm" data-bind="click: finalizar, enable: deveSeguirParaDadosPessoais">Próximo</button>
-        </div>
-    </div>
-
-    <!--Passo 9: Planejamento Financeiro-->
-    <div class="row-fluid" data-bind="if: passo() === 9">
-            <div class="titulo">
-                Planejando a compra do imóvel             
-            </div>
-            <div class="conteudo">   
-                <h2>Características do imóvel desejado:</h2>
-                <div data-bind="html: resumoDoImovelTexto1"></div>
-                <div data-bind="html: resumoDoImovelTexto2"></div>
-                <div data-bind="html: resumoDoImovelTexto3"></div>
-
-                <div class="row">
-                    <div class="col-md-3">
-                        <h3>Valor do imóvel: R$ 100000,00</h3>
-                        <h4>Renda de R$3000,00</h4>
-                        <h4>Número de parcelas: 360</h4>
-                        <h4>Valor da parcela: R$495,00</h4>
-                        <h4>Valor de entrada: R$18310,00</h4>
-                        <h4>Valor do subsídio: R$1690,00</h4>
-                        <h4>Valor financiado: R$80000,00</h4>
-                        <h4>Taxa de juros: 6,16%</h4>
-                        <h4>ITBI + Docs: R$3500,00</h4>
+    <!-- ko if: passo() === 1 -->
+    <section id="section-landing-page">
+        <div class="container">
+            <h2>Em quanto tempo eu vou quitar meu imóvel?</h2>
+            <div id="section-idade">
+                <div class="row justify-content-center">
+                    <div class="col-xs-12 col-sm-12 col-md-10 col-md-offset-1 col-lg-8 col-lg-offset-2">
+                        <div class="col-xs-12 col-sm-12 col-md-12 col-lg-4">
+                            <img class="img" src="img/casal-novinhos.png">
+                        </div>
+                        <div class="col-xs-12 col-sm-12 col-md-12 col-lg-4">
+                            <img class="img" src="img/casal.png">
+                        </div>
+                        <div class="col-xs-12 col-sm-12  col-md-12 col-lg-4">
+                            <img class="img" src="img/casal-velhinhos.png">
+                        </div>
                     </div>
-                    <div class="col-md-3">
-                        <h3>Valor do imóvel: R$ 100000,00</h3>
-                        <h4>Renda de R$7000,00</h4>
-                        <h4>Número de parcelas: 360</h4>
-                        <h4>Valor da parcela: R$636,00</h4>
-                        <h4>Valor de entrada: R$20000,00</h4>
-                        <h4>Valor do subsídio: R$0,00</h4>
-                        <h4>Valor financiado: R$80000,00</h4>
-                        <h4>Taxa de juros: 8,47%</h4>
-                        <h4>ITBI + Docs: R$3500,00</h4>
-                    </div>
-                    <div class="col-md-3">
-                        <h3>Valor do imóvel: R$ 160000,00</h3>
-                        <h4>Renda de R$3000,00</h4>
-                        <h4>Número de parcelas: 360</h4>
-                        <h4>Valor da parcela: R$699,00</h4>
-                        <h4>Valor de entrada: R$45547,00</h4>
-                        <h4>Valor do subsídio: R$1690,00</h4>
-                        <h4>Valor financiado: R$112762,87</h4>
-                        <h4>Taxa de juros: 6,16%</h4>
-                        <h4>ITBI + Docs: R$5600,00</h4>
-                    </div>
-                    <div class="col-md-3">
-                        <h3>Valor do imóvel: R$ 160000,00</h3>
-                        <h4>Renda de R$7000,00</h4>
-                        <h4>Número de parcelas: 360</h4>
-                        <h4>Valor da parcela: R$1000,00</h4>
-                        <h4>Valor de entrada: R$32000,00</h4>
-                        <h4>Valor do subsídio: R$0,00</h4>
-                        <h4>Valor financiado: R$128000,00</h4>
-                        <h4>Taxa de juros: 8,47%</h4>
-                        <h4>ITBI + Docs: R$5600,00</h4>
-                    </div>
-                </div> 
-                <br>
-                <div class="container">
-                    <h3>
-                        É importante você se certificar que você se encaixa em alguma das faixas supracitadas. 
-                        Além disso, é importante ter o valor da entrada sem precisar de empréstimo 
-                        (se desfazer de algum bem, como carro, é uma opção melhor).
-                    </h3>
-                    <h3>
-                        Registramos os seus dados, sempre que encontrarmos imóveis que estejam de acordo com a sua necessidade iremos lhe avisar.
-                    </h3>
-                </div>                
+                </div>
             </div>
         </div>
+        <div class="container">
+            <h2>Qual imóvel eu quero comprar?</h2>
+            <div id="section-tipo-imovel">
+                <div class="row justify-content-center">
+                    <div class="col-xs-12 col-sm-12 col-md-10 col-md-offset-1 col-lg-8 col-lg-offset-2">
+                        <div class="col-xs-12 col-sm-12 col-md-12 col-lg-4">
+                            <img class="img" src="img/casinha.png">
+                        </div>
+                        <div class="col-xs-12 col-sm-12 col-md-12 col-lg-4">
+                            <img class="img" src="img/casa.png">
+                        </div>
+                        <div class="col-xs-12 col-sm-12  col-md-12 col-lg-4">
+                            <img class="img" src="img/casao.png">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="container">
+            <h2>Quer saber como você pode se planejar para comprar seu imóvel?</h2>
+            <div id="section-dados-pessoais">
+                <div class="row justify-content-center">
+                    <div class="col-xs-12 col-sm-12 col-md-10 col-md-offset-1 col-lg-8 col-lg-offset-2">
+                        <div class="col-xs-12 col-sm-12 col-md-12 col-lg-4">
+                            <h4>Valor da Parcela</h4>
+                            <div class="radio">
+                                <label>
+                                    <input type="radio" value="1" name="valorParcela" data-bind="checked: valorParcela, click: limparValorImovel" />Até R$1000,00 
+                                </label>                    
+                            </div>
+                            <div class="radio">
+                                <label>
+                                    <input type="radio" value="2" name="valorParcela" data-bind="checked: valorParcela, click: limparValorImovel" />Até R$1500,00
+                                </label>                
+                            </div>
+                            <div class="radio">
+                                <label>
+                                    <input type="radio" value="3" name="valorParcela" data-bind="checked: valorParcela, click: limparValorImovel" />Até R$2000,00
+                                </label>                    
+                            </div>
+                        </div>
+                        <div class="col-xs-12 col-sm-12 col-md-12 col-lg-4">
+                            <div id="ou">OU</div>
+                        </div>
+                        <div class="col-xs-12 col-sm-12  col-md-12 col-lg-4">
+                            <h4>Valor do Imóvel</h4>
+                            <div class="radio">
+                                <label>
+                                    <input type="radio" value="1" name="valorImovel" data-bind="checked: valorImovel, click: limparValorParcela" />Até R$200 mil
+                                </label>                    
+                            </div>
+                            <div class="radio">
+                                <label>
+                                    <input type="radio" value="2" name="valorImovel" data-bind="checked: valorImovel, click: limparValorParcela" />Até R$400 mil
+                                </label>                
+                            </div>
+                            <div class="radio">
+                                <label>
+                                    <input type="radio" value="3" name="valorImovel" data-bind="checked: valorImovel, click: limparValorParcela" />Até R$500 mil
+                                </label>                    
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row justify-content-center nome-email">
+                    <div class="form-group">
+                        <label for="nome">Nome completo</label>
+                        <input type="text" id="nome" class="form-control" required pattern="^([a-zA-ZáéíóúàâêôãõüçÁÉÍÓÚÀÂÊÔÃÕÜÇ ]|\n){2,50} ([a-zA-ZáéíóúàâêôãõüçÁÉÍÓÚÀÂÊÔÃÕÜÇ ]|\n){2,50}$" placeholder="Nome Completo" data-bind="textInput: nome">
+                        <span id="helpBlock" class="help-block" data-bind="visible: temErroNoNome">Informe um nome válido. Ex: Nome Sobrenome</span>                 
+                    </div>
+                    <div class="form-group">
+                        <label for="email">Email</label>
+                        <input type="email" id="email" class="form-control" required pattern="^[A-Za-z0-9](([_.-]?[a-zA-Z0-9]+)*)@([A-Za-z0-9]+)(([.-]?[a-zA-Z0-9]+)*)([.][A-Za-z]{2,4})$" placeholder="exemplo@email.com" data-bind="textInput: email">
+                        <span id="helpBlock" class="help-block" data-bind="visible: temErroNoEmail">Informe um e-mail válido. Ex: exemplo@email.com</span>
+                    </div> 
+                </div>
+            </div>
+        </div>
+        <div class="container">
+            <button class="btn btn-warning btn-lg" data-bind="click: iniciarCadastro, enable: deveIniciarORegistro">CONSTRUIR PLANEJAMENTO</button>
+        </div> 
+    </section>
+    <!-- /ko -->
+    <!-- ko if: passo() === 2 -->
+    <!-- /ko -->
+    <!-- ko if: passo() === 3 -->
+    <!-- /ko -->
+    <!-- ko if: passo() === 4 -->
+    <!-- /ko -->
+    <!-- ko if: passo() === 5 -->
+    <!-- /ko -->
 </main>
+
+<footer>
+    <div class="container">
+        <h4>Meu Primeiro Imóvel</h4>
+        <p>Todos os direitos reservados. Outrubro, 2017.</p>
+    </div>
+</footer>
 
 </body>
 
 <script type="text/javascript">
     var viewModel = function () {
         self = this;
-        
-        self.passo = ko.observable(0); 
-        self.tiposDeImoveis = ko.observableArray(['Casa Térrea'])  
-        self.numeroDeQuartos = ko.observable('1');
-        self.numeroDeBanheiros = ko.observable('1');  
-        self.numeroDeVagas = ko.observable('1');  
-        self.valorMaximo = ko.observable('100000');   
-        self.cidades = ['Florianópolis', 'Palhoça'],
-        self.cidadeSelecionada = ko.observable('Florianópolis');
-        self.bairrosSelecionados = ko.observableArray([]);
+
+        self.passo = ko.observable(1);
+        self.valorParcela = ko.observable('');
+        self.valorImovel = ko.observable('');        
         self.nome = ko.observable(''); 
         self.email = ko.observable(''); 
         self.temErroNoNome = ko.observable(false); 
-        self.temErroNoEmail = ko.observable(false); 
-
-        self.resumoDoImovelTexto1 = ko.observable();
-        self.resumoDoImovelTexto2 = ko.observable();
-        self.resumoDoImovelTexto3 = ko.observable();
+        self.temErroNoEmail = ko.observable(false);
         
-        self.bairros = ko.computed(function(){
-            if (self.cidadeSelecionada() == 'Florianópolis'){
-                return ['Itacorubi', 'Agronômica', 'Canas Vieiras', 'Campeche'];
-            }else{
-                return ['Guarda do Embaú', 'Bela Vista', 'Jardim Eldorado', 'Morretes'];
+        self.deveIniciarORegistro = ko.computed(function(){
+            return (self.valorParcela() !== '' || self.valorImovel() !== '') &&
+                    self.nome() !== '' &&
+                    self.email() !== '';
+        }, this);
+        self.valorR$Parcela = ko.computed(function(){
+            var valor = 0;
+            switch (self.valorParcela()){
+                case '1':
+                    valor = 1000;
+                    break;
+                case '2':
+                    valor = 1500;
+                    break;
+                case '3':
+                    valor = 2000;
+                    break;
+                default:
+                    valor = 0;
+                    break;
             }
+            return valor;
         }, this);
-
-        self.deveSeguirParaDadosPessoais = ko.computed(function(){
-            return self.bairrosSelecionados().length > 0;
+        self.valorR$Imovel = ko.computed(function(){
+            var valor = 0;
+            switch (self.valorImovel()){
+                case '1':
+                    valor = 200000;
+                    break;
+                case '2':
+                    valor = 400000;
+                    break;
+                case '3':
+                    valor = 500000;
+                    break;
+                default:
+                    valor = 0;
+                    break;
+            }
+            return valor;
         }, this);
         
+        self.limparValorImovel = function(){
+            self.valorImovel('');
+            return true;
+        };
 
-        self.andarPasso = function(){
-            var passo = self.passo() + 1;
-            self.passo(passo); 
-        }  
+        self.limparValorParcela = function(){
+            self.valorParcela('');
+            return true;
+        };
 
-        self.voltarPasso = function(){
-            var passo = self.passo() - 1;
-            self.passo(passo); 
-        }   
-
-        self.setValorMaximo = function(valor){
-            self.valorMaximo(valor);
-        }  
-
-        self.finalizar = function(valor){
+        self.iniciarCadastro = function(valor){
             ehNomeValido();
             ehEmailValido();
             if(!self.temErroNoNome() && !self.temErroNoEmail()) {
-                self.resumoDoImovelTexto1('<p>Imóvel do tipo: <strong>' + this.tiposDeImoveis().join() + '</strong> no valor máximo de: R$ ' + this.valorMaximo() + ',00 </p>');
-                self.resumoDoImovelTexto2('<p>O imóvel deve possuir: ' + this.numeroDeQuartos() + ' quartos, ' + this.numeroDeBanheiros() + ' banheiros e  ' + this.numeroDeVagas() + ' vagas de garagem. </p>');
-                self.resumoDoImovelTexto3('<p>Deve estar localizado em: <strong>' + this.cidadeSelecionada() + '</strong> nos bairros: ' + this.bairrosSelecionados().join() + '</p>');                                
-                self.andarPasso();
+                //cadastrar();
+                proximoPasso()
             }
-        }  
+        };
+        
+        function proximoPasso(){
+            var passo = self.passo() + 1;
+            self.passo(passo);
+        };
+
+        function passoAnterior(){
+            var passo = self.passo() - 1;
+            self.passo(passo);
+        };
 
         function ehNomeValido(){
             self.temErroNoNome(false);
@@ -420,7 +244,19 @@
 	        if(!er.exec(self.email())){
                 self.temErroNoEmail(true);
             }
-        } 
+        }    
+
+        function cadastrar(){
+            var params = {valorParcela: self.valorR$Parcela(), valorImovel: self.valorR$Imovel(), nome: self.nome(), email: self.email()}
+            var url = "http://www.meuprimeiroimovel.com.br/algumacoisa.php";
+            $.post(url, params)
+                .done(function() {
+                    alert('success');
+                })
+                .fail(function() {
+                    alert('error');
+                });
+        }               
     }
 
     ko.applyBindings(new viewModel());
