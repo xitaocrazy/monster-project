@@ -40,25 +40,32 @@
     <!-- Landing Page -->
     <section id="section-landing-page" data-bind="visible: passo() === 1">
         <div class="container">
-            <h2>Em quanto tempo eu vou quitar meu imóvel?</h2>
+            <div class="text">
+                <p>Em quanto <b>tempo</b> eu vou quitar meu imóvel?</p>
+            </div>
             <div id="section-idade">
                 <div class="row justify-content-center">
                     <div class="col-xs-12 col-sm-12 col-md-10 col-md-offset-1 col-lg-8 col-lg-offset-2">
                         <div class="col-xs-12 col-sm-12 col-md-12 col-lg-4">
                             <img class="img" src="img/casal-novinhos.png">
+                            <p>menos de 5 anos</p>
                         </div>
                         <div class="col-xs-12 col-sm-12 col-md-12 col-lg-4">
                             <img class="img" src="img/casal.png">
+                            <p>menos de 10 anos</p>
                         </div>
                         <div class="col-xs-12 col-sm-12  col-md-12 col-lg-4">
                             <img class="img" src="img/casal-velhinhos.png">
+                            <p>10 anos ou mais</p>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
         <div class="container">
-            <h2>Qual imóvel eu quero comprar?</h2>
+            <div class="text">
+                <p>Qual imóvel eu <b>consigo</b> comprar?</p>
+            </div>
             <div id="section-tipo-imovel">
                 <div class="row justify-content-center">
                     <div class="col-xs-12 col-sm-12 col-md-10 col-md-offset-1 col-lg-8 col-lg-offset-2">
@@ -76,7 +83,9 @@
             </div>
         </div>
         <div class="container">
-            <h2>Quer saber como você pode se planejar para comprar seu imóvel?</h2>
+            <div class="text">
+                <p>Quer saber como você pode se planejar para comprar seu imóvel?</p>
+            </div>
             <div id="section-dados-pessoais">
                 <div class="row justify-content-center">
                     <div class="col-xs-12 col-sm-12 col-md-10 col-md-offset-1 col-lg-8 col-lg-offset-2">
@@ -121,6 +130,7 @@
                         </div>
                     </div>
                 </div>
+                <br>
                 <div class="row justify-content-center nome-email">
                     <div class="form-group">
                         <label for="nome">Nome completo</label>
@@ -141,38 +151,46 @@
     </section>    
     <!-- Tipo de Familía -->
     <section id="section-tipo-de-familia" data-bind="visible: passo() === 2">
-        <h2>Qual seu plano familiar para os próximos anos?</h2>
+        <div class="text">
+            <p>Qual seu <b>plano familiar</b> para os próximos anos?</p>
+        </div>
         <br>
         <div class="row justify-content-center">
             <div class="col-xs-12 col-sm-12 col-md-10 col-md-offset-1 col-lg-8 col-lg-offset-2">
                 <div class="col-xs-12 col-sm-12 col-md-3 col-lg-3">
                     <button id="btnFamiliaPequena" class="btn btn-default" data-bind="click: setarTipoDeFamilia.bind($data, 1)"> </button>
+                    <p>solteiro</p>
                 </div>
                 <div class="col-xs-12 col-sm-12 col-md-3 col-lg-3" >
                     <button id="btnFamiliaMedia" class="btn btn-default" data-bind="click: setarTipoDeFamilia.bind($data, 2)"></button>
+                    <p>casal</p>
                 </div>
                 <div class="col-xs-12 col-sm-12  col-md-3 col-lg-3">
                     <button id="btnFamiliaGrande" class="btn btn-default" data-bind="click: setarTipoDeFamilia.bind($data, 3)"></button>
+                    <p>com 1 filho</p>
                 </div>
                 <div class="col-xs-12 col-sm-12  col-md-3 col-lg-3">
                     <button id="btnFamiliaGG" class="btn btn-default" data-bind="click: setarTipoDeFamilia.bind($data, 4)"></button>
+                    <p>com 2 filhos ou mais</p>
                 </div>
             </div>
         </div>
     </section>    
     <!-- Região -->
     <section id="section-regiao" data-bind="visible: deveCarregarMapa() || passo() === 3">
-        <h2>Em qual região de Florianópolis você quer morar?</h2>
+        <div class="text">
+            <p>Em qual <b>região</b> de Florianópolis você quer morar?</p>
+        </div>
         <br>
         <div class="row justify-content-center">
             <div id="mapa" class="col-xs-12 col-sm-12 col-md-10 col-md-offset-2 col-lg-8 col-lg-offset-4">
                 <img src="img/mapa.png" alt="mapa-floripa" class="map" usemap="#floripa" />
                 <map name="floripa">
-                    <area shape="rect" id="Continente" title="Continente" alt="Continente" href="#" coords="10,35,200,610" data-bind="click: setarRegiao.bind($data, 1)" data-maphilight="{&quot;stroke&quot;:false,&quot;fillColor&quot;:&quot;ff0000&quot;,&quot;fillOpacity&quot;:0.6}" >
-                    <area shape="rect" id="Continente" title="Norte" alt="Norte" href="#" coords="325,50,520,200" data-bind="click: setarRegiao.bind($data, 2)" data-maphilight="{&quot;stroke&quot;:false,&quot;fillColor&quot;:&quot;ff0000&quot;,&quot;fillOpacity&quot;:0.6}">
-                    <area shape="rect" id="Continente" title="Centro" alt="Centro" href="#" coords="385,380,300,200" data-bind="click: setarRegiao.bind($data, 3)" data-maphilight="{&quot;stroke&quot;:false,&quot;fillColor&quot;:&quot;ff0000&quot;,&quot;fillOpacity&quot;:0.6}">
-                    <area shape="rect" id="Continente" title="Leste" alt="Leste" href="#" coords="385,380,465,200" data-bind="click: setarRegiao.bind($data, 4)" data-maphilight="{&quot;stroke&quot;:false,&quot;fillColor&quot;:&quot;ff0000&quot;,&quot;fillOpacity&quot;:0.6}">
-                    <area shape="rect" id="Continente" title="Sul" alt="Sul" href="#" coords="280,560,400,380" data-bind="click: setarRegiao.bind($data, 5)" data-maphilight="{&quot;stroke&quot;:false,&quot;fillColor&quot;:&quot;ff0000&quot;,&quot;fillOpacity&quot;:0.6}">
+                    <area shape="rect" id="Continente" title="Continente" alt="Continente" href="#" coords="10,35,200,610" data-bind="click: setarRegiao.bind($data, 1)" data-maphilight="{&quot;stroke&quot;:false,&quot;fillColor&quot;:&quot;E3F353&quot;,&quot;fillOpacity&quot;:0.6}" >
+                    <area shape="rect" id="Continente" title="Norte" alt="Norte" href="#" coords="325,50,520,200" data-bind="click: setarRegiao.bind($data, 2)" data-maphilight="{&quot;stroke&quot;:false,&quot;fillColor&quot;:&quot;E3F353&quot;,&quot;fillOpacity&quot;:0.6}">
+                    <area shape="rect" id="Continente" title="Centro" alt="Centro" href="#" coords="385,380,300,200" data-bind="click: setarRegiao.bind($data, 3)" data-maphilight="{&quot;stroke&quot;:false,&quot;fillColor&quot;:&quot;E3F353&quot;,&quot;fillOpacity&quot;:0.6}">
+                    <area shape="rect" id="Continente" title="Leste" alt="Leste" href="#" coords="385,380,465,200" data-bind="click: setarRegiao.bind($data, 4)" data-maphilight="{&quot;stroke&quot;:false,&quot;fillColor&quot;:&quot;E3F353&quot;,&quot;fillOpacity&quot;:0.6}">
+                    <area shape="rect" id="Continente" title="Sul" alt="Sul" href="#" coords="280,560,400,380" data-bind="click: setarRegiao.bind($data, 5)" data-maphilight="{&quot;stroke&quot;:false,&quot;fillColor&quot;:&quot;E3F353&quot;,&quot;fillOpacity&quot;:0.6}">
                 </map>
                     
             </div>
@@ -180,28 +198,36 @@
     </section>    
     <!-- Renda -->
     <section id="section-renda" data-bind="visible: passo() === 4">            
-        <h2>Qual a sua renda familiar?</h2>
+        <div class="text">
+            <p>Qual a sua <b>renda familiar?</b></p>
+        </div>
         <br>
         <div class="row justify-content-center">
             <div class="col-xs-12 col-sm-12 col-md-10 col-md-offset-1 col-lg-8 col-lg-offset-2">
                 <div class="col-xs-12 col-sm-12 col-md-3 col-lg-3">
                     <button id="btnRendaPequena" class="btn btn-default" data-bind="click: setarRenda.bind($data, 1000)"></button>
+                    <p>até R$1.000,00</p>
                 </div>
                 <div class="col-xs-12 col-sm-12 col-md-3 col-lg-3">
                     <button id="btnRendaMedia" class="btn btn-default" data-bind="click: setarRenda.bind($data, 3000)"></button>
+                    <p>até R$3.000,00</p>
                 </div>
                 <div class="col-xs-12 col-sm-12  col-md-3 col-lg-3">
                     <button id="btnRendaGrande" class="btn btn-default" data-bind="click: setarRenda.bind($data, 5000)"></button>
+                    <p>até R$5.000,00</p>
                 </div>
                 <div class="col-xs-12 col-sm-12  col-md-3 col-lg-3">
                     <button id="btnRendaGG" class="btn btn-default" data-bind="click: setarRenda.bind($data, 6000)"></button>
+                    <p>mais de R$5.000,00</p>
                 </div>
             </div>
         </div>
     </section>    
     <!-- Resultado -->
     <section id="section-tipo-de-familia" data-bind="visible: passo() === 5">
-        <h2>Veja os resultados encontrados que combinam com você!</h2>
+        <div class="text">
+            <p>Veja os <b>resultados</b> que combinam com você!</p>
+        </div>
         <br>
         <div class="row justify-content-center">
             <div class="col-xs-12 col-sm-12 col-md-10 col-md-offset-1 col-lg-8 col-lg-offset-2">
