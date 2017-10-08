@@ -18,6 +18,14 @@ header {
 
 main {
     text-align: center;
+    min-height: 100%;
+    height: auto !important;
+    height: 100%;
+}
+
+main h2 {
+    padding-top: 30px;
+    padding-bottom: 20px;
 }
 
 #ou {
@@ -42,4 +50,45 @@ footer {
     padding-bottom: 10px;
     color: #464444;
     text-align: center;
+}
+
+#section-tipo-de-familia button, #section-renda button {
+    width: 200px;
+    height: 200px;
+    background-color: transparent !important;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: top center;
+}
+
+#btnFamiliaPequena {
+    background-image: url('../img/casal-novinhos.png');
+}
+
+#btnFamiliaMedia {
+    background-image: url('../img/casal.png');
+}
+
+#btnFamiliaGrande {
+    background-image: url('../img/casal-velhinhos.png');
+}
+
+#btnFamiliaGG {
+    background-image: url('../img/casal-velhinhos.png');
+}
+
+#btnRendaPequena {
+    background-image: url('../img/casal-novinhos.png');
+}
+
+#btnRendaMedia {
+    background-image: url('../img/casal.png');
+}
+
+#btnRendaGrande {
+    background-image: url('../img/casal-velhinhos.png');
+}
+
+#btnRendaGG {
+    background-image: url('../img/casal-velhinhos.png');
 }
