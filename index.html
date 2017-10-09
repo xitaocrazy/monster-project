@@ -317,6 +317,18 @@
                     </div> 
                 </div>
             </div>
+        </div>        
+        <div class="row justify-content-center detalhes">
+            <div class="col-xs-12 col-sm-12 col-md-10 col-md-offset-1 col-lg-8 col-lg-offset-2">
+                <div>
+                    <button class="btn btn-warning btn-sm" data-bind="click: verDetalhes">Detalhes</button>
+                    <ul class="list-unstyled" data-bind="foreach: resultadoDetalhesDistintos">
+                        <li>
+                            <b data-bind="text: $data"></b>
+                        </li>
+                    </ul>
+                </div>               
+            </div>
         </div>
         <div class="row justify-content-center">
             <div class="col-xs-12 col-sm-12 col-md-10 col-md-offset-1 col-lg-8 col-lg-offset-2">
@@ -358,6 +370,9 @@
         self.regiao = ko.observable(0);
         self.temErroNoNome = ko.observable(false); 
         self.temErroNoEmail = ko.observable(false);
+        self.resultadoDetalhesDistintos = ko.observableArray([]);
+        self.resultadoDetalhes = ko.observableArray([]);
+        self.dummyObservable = ko.observable();
         
         self.deveIniciarORegistro = ko.computed(function(){
             return (self.valorParcela() !== '' || self.valorImovel() !== '') &&
@@ -442,113 +457,149 @@
             parcela = parcela + jurosParcela;
             return parcela;
         }, this);
-
         self.casinha5AnosAtivo = ko.computed(function(){
+            self.dummyObservable();
             if (self.tipoDeFamilia() > 1){
                 return false;
             }
             if (!compararRenda(self.valorR$Parcela(), self.valorParcela5Anos(), self.valorR$Imovel())){
+                self.resultadoDetalhes.push('O valor das parcelas em 5 anos, para casas pequenas, é maior do que 30% da renda informada.')
                 return false;
             }
             var valor = casinhaValores[self.regiao()];
-            var resultado = compararValores(valor, self.valorR$Parcela(), self.valorImovel5Anos(), self.valorR$Imovel());
-            return resultado;
+            if (!compararValores(valor, self.valorR$Parcela(), self.valorImovel5Anos(), self.valorR$Imovel())){
+                self.resultadoDetalhes.push('O valor do imóvel em 5 anos, para casas pequenas, é menor do que a média da região.')
+                return false;
+            }
+            return true;
         }, this);
-
         self.casa5AnosAtivo = ko.computed(function(){
+            self.dummyObservable();
             if (self.tipoDeFamilia() > 3){
                 return false;
             }
             if (!compararRenda(self.valorR$Parcela(), self.valorParcela5Anos(), self.valorR$Imovel())){
+                self.resultadoDetalhes.push('O valor das parcelas em 5 anos, para casas médias ou grandes, é maior do que 30% da renda informada.')
                 return false;
             }
             var valor = casaValores[self.regiao()];
-            var resultado = compararValores(valor, self.valorR$Parcela(), self.valorImovel5Anos(), self.valorR$Imovel());
-            return resultado;
+            if (!compararValores(valor, self.valorR$Parcela(), self.valorImovel5Anos(), self.valorR$Imovel())){
+                self.resultadoDetalhes.push('O valor do imóvel em 5 anos, para casas médias ou grandes, é menor do que a média da região.')
+                return false;
+            }
+            return true;
         }, this);
-
         self.casao5AnosAtivo = ko.computed(function(){
+            self.dummyObservable();
             if (self.tipoDeFamilia() < 3){
                 return false;
             }
             if (!compararRenda(self.valorR$Parcela(), self.valorParcela10Anos(), self.valorR$Imovel())){
+                self.resultadoDetalhes.push('O valor das parcelas em 5 anos, para casas muito grandes, é maior do que 30% da renda informada.')
                 return false;
             }
             var valor = casaoValores[self.regiao()];
-            var resultado = compararValores(valor, self.valorR$Parcela(), self.valorImovel5Anos(), self.valorR$Imovel());
-            return resultado;
+            if (!compararValores(valor, self.valorR$Parcela(), self.valorImovel5Anos(), self.valorR$Imovel())){
+                self.resultadoDetalhes.push('O valor do imóvel em 5 anos, para casas muito grandes, é menor do que a média da região.')
+                return false;
+            }
+            return true;
         }, this);
-
         self.casinha10AnosAtivo = ko.computed(function(){
+            self.dummyObservable();
             if (self.tipoDeFamilia() > 1){
                 return false;
             }
             if (!compararRenda(self.valorR$Parcela(), self.valorParcela10Anos(), self.valorR$Imovel())){
+                self.resultadoDetalhes.push('O valor das parcelas em 10 anos, para casas pequenas, é maior do que 30% da renda informada.')
                 return false;
             }
             var valor = casinhaValores[self.regiao()];
-            var resultado = compararValores(valor, self.valorR$Parcela(), self.valorImovel10Anos(), self.valorR$Imovel());
-            return resultado;
+            if (!compararValores(valor, self.valorR$Parcela(), self.valorImovel10Anos(), self.valorR$Imovel())){
+                self.resultadoDetalhes.push('O valor do imóvel em 5 anos, para casas pequenas, é menor do que a média da região.')
+                return false;
+            }
+            return true;
         }, this);
-
         self.casa10AnosAtivo = ko.computed(function(){
+            self.dummyObservable();
             if (self.tipoDeFamilia() > 3){
                 return false;
             }
             if (!compararRenda(self.valorR$Parcela(), self.valorParcela10Anos(), self.valorR$Imovel())){
+                self.resultadoDetalhes.push('O valor das parcelas em 10 anos, para casas médias ou grandes, é maior do que 30% da renda informada.')
                 return false;
             }
             var valor = casaValores[self.regiao()];
-            var resultado = compararValores(valor, self.valorR$Parcela(), self.valorImovel10Anos(), self.valorR$Imovel());
-            return resultado;
+            if (!compararValores(valor, self.valorR$Parcela(), self.valorImovel10Anos(), self.valorR$Imovel())){
+                self.resultadoDetalhes.push('O valor do imóvel em 5 anos, para casas médias ou grandes, é menor do que a média da região.')
+                return false;
+            }
+            return true;
         }, this);
-
         self.casao10AnosAtivo = ko.computed(function(){
-            if (self.tipoDeFamilia() < 3){
+            self.dummyObservable();
+            if (self.tipoDeFamilia() < 3){                
                 return false;
             }
             if (!compararRenda(self.valorR$Parcela(), self.valorParcela10Anos(), self.valorR$Imovel())){
+                self.resultadoDetalhes.push('O valor das parcelas em 10 anos, para casas muito grandes, é maior do que 30% da renda informada.')
                 return false;
             }
             var valor = casaoValores[self.regiao()];
-            var resultado = compararValores(valor, self.valorR$Parcela(), self.valorImovel10Anos(), self.valorR$Imovel());
-            return resultado;
+            if (!compararValores(valor, self.valorR$Parcela(), self.valorImovel10Anos(), self.valorR$Imovel())){
+                self.resultadoDetalhes.push('O valor do imóvel em 5 anos, para casas muito grandes, é menor do que a média da região.')
+                return false;
+            }
+            return true;
         }, this);
-
         self.casinha20AnosAtivo = ko.computed(function(){
+            self.dummyObservable();
             if (self.tipoDeFamilia() > 1){
                 return false;
             }
             if (!compararRenda(self.valorR$Parcela(), self.valorParcela20Anos(), self.valorR$Imovel())){
+                self.resultadoDetalhes.push('O valor das parcelas em 20 anos, para casas pequenas, é maior do que 30% da renda informada.')
                 return false;
             }
             var valor = casinhaValores[self.regiao()];
-            var resultado = compararValores(valor, self.valorR$Parcela(), self.valorImovel20Anos(), self.valorR$Imovel());
-            return resultado;
+            if (!compararValores(valor, self.valorR$Parcela(), self.valorImovel20Anos(), self.valorR$Imovel())){
+                self.resultadoDetalhes.push('O valor do imóvel em 20 anos, para casas pequenas, é menor do que a média da região.')
+                return false;
+            }
+            return true;
         }, this);
-
         self.casa20AnosAtivo = ko.computed(function(){
+            self.dummyObservable();
             if (self.tipoDeFamilia() > 3){
                 return false;
             }
             if (!compararRenda(self.valorR$Parcela(), self.valorParcela20Anos(), self.valorR$Imovel())){
+                self.resultadoDetalhes.push('O valor das parcelas em 20 anos, para casas médias ou grandes, é maior do que 30% da renda informada.')
                 return false;
             }
             var valor = casaValores[self.regiao()];
-            var resultado = compararValores(valor, self.valorR$Parcela(), self.valorImovel20Anos(), self.valorR$Imovel());
-            return resultado;
+            if (!compararValores(valor, self.valorR$Parcela(), self.valorImovel20Anos(), self.valorR$Imovel())){
+                self.resultadoDetalhes.push('O valor do imóvel em 5 anos, para casas médias ou grandes, é menor do que a média da região.')
+                return false;
+            }
+            return true;
         }, this);
-
         self.casao20AnosAtivo = ko.computed(function(){
+            self.dummyObservable();
             if (self.tipoDeFamilia() < 3){
                 return false;
             }
             if (!compararRenda(self.valorR$Parcela(), self.valorParcela20Anos(), self.valorR$Imovel())){
+                self.resultadoDetalhes.push('O valor das parcelas em 20 anos, para casas muito grandes, é maior do que 30% da renda informada.')
                 return false;
             }
             var valor = casaoValores[self.regiao()];
-            var resultado = compararValores(valor, self.valorR$Parcela(), self.valorImovel20Anos(), self.valorR$Imovel());
-            return resultado;
+            if (!compararValores(valor, self.valorR$Parcela(), self.valorImovel20Anos(), self.valorR$Imovel())){
+                self.resultadoDetalhes.push('O valor do imóvel em 5 anos, para casas muito grandes, é menor do que a média da região.')
+                return false;
+            }
+            return true;
         }, this);
                
         self.limparValorImovel = function(){
@@ -584,6 +635,27 @@
             self.renda(rendaInformada);
             //salvarRenda();
             proximoPasso();
+        };
+        self.verDetalhes = function(valor){
+            self.resultadoDetalhesDistintos([]);
+            self.resultadoDetalhes([]);
+
+            if (self.tipoDeFamilia() > 1){
+                self.resultadoDetalhes.push("Você já é um casal, recomendamos uma casa média ou grande.")
+            }
+            if (self.tipoDeFamilia() > 3){
+                self.resultadoDetalhes.push("Você tem uma família bem grande, recomendamos uma casa grande.")
+            }
+            if (self.tipoDeFamilia() < 3){
+                self.resultadoDetalhes.push("Você tem uma família pequena ou é solteiro, recomendamos uma casa média ou pequena.")
+            }
+            self.dummyObservable.notifySubscribers();
+            
+            var detalhes = self.resultadoDetalhes();
+            detalhes = detalhes.filter(function(item, pos) {
+                return detalhes.indexOf(item) == pos;
+            })
+            self.resultadoDetalhesDistintos( self.resultadoDetalhes());
         };
         
         function proximoPasso(){
