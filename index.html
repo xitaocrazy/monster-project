@@ -236,8 +236,10 @@
     <section id="section-resultado" class="container" data-bind="visible: passo() === 5">
         <div class="row text">
             <p>Veja os <span class="text-highlighted">resultados</span> que combinam com você!</p>
+            <br />
         </div>
-        <br>
+
+<!-- 
         <div class="row justify-content-center">
             <div class="col-xs-12 col-sm-12 col-md-10 col-md-offset-1 col-lg-8 col-lg-offset-2">
                 <div class="col-xs-12 col-sm-12 col-md-3 col-lg-3"></div> 
@@ -323,7 +325,81 @@
                     </div> 
                 </div>
             </div>
-        </div>        
+        </div>
+-->
+        <div class="row">
+            <div class="col-xs-12 col-sm-12 col-md-10 col-md-offset-1 col-lg-8 col-lg-offset-2 table-responsive">
+                <table class="table table-hover">
+                    <colgroup span="4"></colgroup>
+                    <thead>
+                        <tr>
+                            <!--<th>Tempo vs. Tamanho do Imóvel</th>-->
+                            <th></th>
+                            <th>
+                                <img class="img" src="img/ic_2a_smallhouse_white.svg">
+                                <p>1 dormitório</p>
+                            </th>
+                            <th>
+                                <img class="img" src="img/ic_2b_mediumhouse_white.svg">
+                                <p>2 dormitórios</p>
+                            </th>
+                            <th>
+                                <img class="img" src="img/ic_2c_bighouse_white.svg">
+                                <p>3+ dormitório</p>
+                            </th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <th>
+                                <img class="img" src="img/ic_1a_baby_white.svg">
+                                <p>menos de 5 anos</p>
+                            </th>
+                            <td>
+                                <img data-bind="visible: casinha5AnosAtivo" class="img" src="img/casinha-branca.png" >
+                            </td>
+                            <td>
+                                <img data-bind="visible: casa5AnosAtivo" class="img" src="img/casinha-branca.png" >
+                            </td>
+                            <td>
+                                <img data-bind="visible: casao5AnosAtivo" class="img" src="img/casinha-branca.png" >
+                            </td>
+                        </tr>
+                        <tr>
+                            <th>
+                                <img class="img" src="img/ic_1b_adult_white.svg">
+                                <p>menos de 10 anos</p>
+                            </th>
+                            <td>
+                                <img data-bind="visible: casinha10AnosAtivo" class="img" src="img/casinha-branca.png" >
+                            </td>
+                            <td>
+                                <img data-bind="visible: casa10AnosAtivo" class="img" src="img/casinha-branca.png" >
+                            </td>
+                            <td>
+                                <img data-bind="visible: casao10AnosAtivo" class="img" src="img/casinha-branca.png" >
+                            </td>
+                        </tr>
+                        <tr>
+                            <th>
+                                <img class="img" src="img/ic_1c_oldman_white.svg">
+                                <p>10 anos ou mais</p>
+                            </th>
+                            <td>
+                                <img data-bind="visible: casinha20AnosAtivo" class="img" src="img/casinha-branca.png" >
+                            </td>
+                            <td>
+                                <img data-bind="visible: casa20AnosAtivo" class="img" src="img/casinha-branca.png" >
+                            </td>
+                            <td>
+                                <img data-bind="visible: casao20AnosAtivo" class="img" src="img/casinha-branca.png" >
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
         <div class="row justify-content-center detalhes">
             <div class="col-xs-12 col-sm-12 col-md-10 col-md-offset-1 col-lg-8 col-lg-offset-2">
                 <div>
@@ -368,7 +444,7 @@
         var casaoValores =   [300000, 300000, 600000, 600000, 300000];        
 
         self.deveCarregarMapa = ko.observable(true);
-        self.passo = ko.observable(1);
+        self.passo = ko.observable(5);
         self.id = ko.observable(0);
         self.valorParcela = ko.observable('');
         self.valorImovel = ko.observable('');  
