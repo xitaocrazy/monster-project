@@ -135,8 +135,9 @@ footer {
 }
 
 #section-tipo-de-familia button, #section-renda button {
-    width: 200px;
-    height: 200px;
+    width: 160px;
+    height: 160px;
+    object-fit: contain;
     background-color: transparent !important;
     background-repeat: no-repeat;
     background-size: cover;

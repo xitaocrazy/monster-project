@@ -159,8 +159,8 @@
         </div> 
     </section>    
     <!-- Tipo de Familía -->
-    <section id="section-tipo-de-familia" data-bind="visible: passo() === 2">
-        <div class="text">
+    <section id="section-tipo-de-familia" class="container"  data-bind="visible: passo() === 2">
+        <div class="row text">
             <p>Qual seu <span class="text-highlighted">plano familiar</span> para os próximos anos?</p>
         </div>
         <br>
@@ -186,8 +186,8 @@
         </div>
     </section>    
     <!-- Região -->
-    <section id="section-regiao" data-bind="visible: deveCarregarMapa() || passo() === 3">
-        <div class="text">
+    <section id="section-regiao" class="container" data-bind="visible: deveCarregarMapa() || passo() === 3">
+        <div class="row text">
             <p>Em qual <span class="text-highlighted">região</span> de Florianópolis você quer morar?</p>
         </div>
         <br>
@@ -195,19 +195,19 @@
             <div id="mapa" class="col-xs-12 col-sm-12 col-md-10 col-md-offset-2 col-lg-8 col-lg-offset-4">
                 <img src="img/mapa.png" alt="mapa-floripa" class="map" usemap="#floripa" />
                 <map name="floripa">
-                    <area shape="rect" id="Continente" title="Continente" alt="Continente" href="#" coords="10,35,200,610" data-bind="click: setarRegiao.bind($data, 0)" data-maphilight="{&quot;stroke&quot;:false,&quot;fillColor&quot;:&quot;E3F353&quot;,&quot;fillOpacity&quot;:0.6}" >
-                    <area shape="rect" id="Continente" title="Norte" alt="Norte" href="#" coords="325,50,520,200" data-bind="click: setarRegiao.bind($data, 1)" data-maphilight="{&quot;stroke&quot;:false,&quot;fillColor&quot;:&quot;E3F353&quot;,&quot;fillOpacity&quot;:0.6}">
-                    <area shape="rect" id="Continente" title="Centro" alt="Centro" href="#" coords="385,380,300,200" data-bind="click: setarRegiao.bind($data, 2)" data-maphilight="{&quot;stroke&quot;:false,&quot;fillColor&quot;:&quot;E3F353&quot;,&quot;fillOpacity&quot;:0.6}">
-                    <area shape="rect" id="Continente" title="Leste" alt="Leste" href="#" coords="385,380,465,200" data-bind="click: setarRegiao.bind($data, 3)" data-maphilight="{&quot;stroke&quot;:false,&quot;fillColor&quot;:&quot;E3F353&quot;,&quot;fillOpacity&quot;:0.6}">
-                    <area shape="rect" id="Continente" title="Sul" alt="Sul" href="#" coords="280,560,400,380" data-bind="click: setarRegiao.bind($data, 4)" data-maphilight="{&quot;stroke&quot;:false,&quot;fillColor&quot;:&quot;E3F353&quot;,&quot;fillOpacity&quot;:0.6}">
+                    <area shape="rect" id="Continente" title="Continente" alt="Continente" href="#" coords="10,35,200,610" data-bind="click: setarRegiao.bind($data, 0)" data-maphilight="{&quot;stroke&quot;:false,&quot;fillColor&quot;:&quot;F5775B&quot;,&quot;fillOpacity&quot;:0.6}" >
+                    <area shape="rect" id="Continente" title="Norte" alt="Norte" href="#" coords="325,50,520,200" data-bind="click: setarRegiao.bind($data, 1)" data-maphilight="{&quot;stroke&quot;:false,&quot;fillColor&quot;:&quot;F5775B&quot;,&quot;fillOpacity&quot;:0.6}">
+                    <area shape="rect" id="Continente" title="Centro" alt="Centro" href="#" coords="385,380,300,200" data-bind="click: setarRegiao.bind($data, 2)" data-maphilight="{&quot;stroke&quot;:false,&quot;fillColor&quot;:&quot;F5775B&quot;,&quot;fillOpacity&quot;:0.6}">
+                    <area shape="rect" id="Continente" title="Leste" alt="Leste" href="#" coords="385,380,465,200" data-bind="click: setarRegiao.bind($data, 3)" data-maphilight="{&quot;stroke&quot;:false,&quot;fillColor&quot;:&quot;F5775B&quot;,&quot;fillOpacity&quot;:0.6}">
+                    <area shape="rect" id="Continente" title="Sul" alt="Sul" href="#" coords="280,560,400,380" data-bind="click: setarRegiao.bind($data, 4)" data-maphilight="{&quot;stroke&quot;:false,&quot;fillColor&quot;:&quot;F5775B&quot;,&quot;fillOpacity&quot;:0.6}">
                 </map>
                     
             </div>
         </div>
     </section>
     <!-- Renda -->
-    <section id="section-renda" data-bind="visible: passo() === 4">            
-        <div class="text">
+    <section id="section-renda" class="container" data-bind="visible: passo() === 4">
+        <div class="row text">
             <p>Qual a sua <span class="text-highlighted">renda familiar?</span></p>
         </div>
         <br>
@@ -233,8 +233,8 @@
         </div>
     </section>    
     <!-- Resultado -->
-    <section id="section-resultado" data-bind="visible: passo() === 5">
-        <div class="text">
+    <section id="section-resultado" class="container" data-bind="visible: passo() === 5">
+        <div class="row text">
             <p>Veja os <span class="text-highlighted">resultados</span> que combinam com você!</p>
         </div>
         <br>
@@ -339,9 +339,11 @@
         <div class="row justify-content-center">
             <div class="col-xs-12 col-sm-12 col-md-10 col-md-offset-1 col-lg-8 col-lg-offset-2">
                 <div>
+                    <p>&nbsp;</p><p>&nbsp;</p>
                     <h2>Organize sua vida <span class="text-highlighted">financeira</span></h2>
                     <p>Baixe a planilha "Orçamento Familiar" e comece a planejar a compra do seu primeiro imóvel!</p>
-                    <a id="baixar" class="btn btn-sm" href="content/planilha_orcamento_familiar.xlsx" download>DOWNLOAD</a>
+                    <p>&nbsp;</p>
+                    <a id="baixar" class="btn" href="content/planilha_orcamento_familiar.xlsx" download>BAIXAR PLANILHA</a>
                 </div>                
             </div>
         </div>
@@ -366,7 +368,7 @@
         var casaoValores =   [300000, 300000, 600000, 600000, 300000];        
 
         self.deveCarregarMapa = ko.observable(true);
-        self.passo = ko.observable(1);
+        self.passo = ko.observable(2);
         self.id = ko.observable(0);
         self.valorParcela = ko.observable('');
         self.valorImovel = ko.observable('');  
