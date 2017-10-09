@@ -1,3 +1,13 @@
+:root {
+    --color-bg: #333;
+    
+    --color-text: #E5E5E5;
+    --color-text-highlighted: #F5775B;
+
+    --color-btn-bg: #F5775B;
+    --color-btn-text: #FFF;
+}
+
 html{
     height: 100%;
 }
