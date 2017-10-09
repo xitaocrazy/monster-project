@@ -217,7 +217,7 @@
                     <p>até R$5.000,00</p>
                 </div>
                 <div class="col-xs-12 col-sm-12  col-md-3 col-lg-3">
-                    <button id="btnRendaGG" class="btn btn-default" data-bind="click: setarRenda.bind($data, 6000)"></button>
+                    <button id="btnRendaGG" class="btn btn-default" data-bind="click: setarRenda.bind($data, 7500)"></button>
                     <p>mais de R$5.000,00</p>
                 </div>
             </div>
@@ -459,6 +459,9 @@
         }, this);
 
         self.casao5AnosAtivo = ko.computed(function(){
+            if (self.tipoDeFamilia() < 3){
+                return false;
+            }
             if (!compararRenda(self.valorR$Parcela(), self.valorParcela10Anos(), self.valorR$Imovel())){
                 return false;
             }
@@ -492,6 +495,9 @@
         }, this);
 
         self.casao10AnosAtivo = ko.computed(function(){
+            if (self.tipoDeFamilia() < 3){
+                return false;
+            }
             if (!compararRenda(self.valorR$Parcela(), self.valorParcela10Anos(), self.valorR$Imovel())){
                 return false;
             }
@@ -525,6 +531,9 @@
         }, this);
 
         self.casao20AnosAtivo = ko.computed(function(){
+            if (self.tipoDeFamilia() < 3){
+                return false;
+            }
             if (!compararRenda(self.valorR$Parcela(), self.valorParcela20Anos(), self.valorR$Imovel())){
                 return false;
             }
