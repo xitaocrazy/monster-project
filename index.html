@@ -224,7 +224,7 @@
         </div>
     </section>    
     <!-- Resultado -->
-    <section id="section-tipo-de-familia" data-bind="visible: passo() === 5">
+    <section id="section-resultado" data-bind="visible: passo() === 5">
         <div class="text">
             <p>Veja os <b>resultados</b> que combinam com você!</p>
         </div>
@@ -291,6 +291,12 @@
                 </div>
             </div>
         </div>
+        <div class="row justify-content-center text">
+            <div class="col-xs-12 col-sm-12 col-md-10 col-md-offset-1 col-lg-8 col-lg-offset-2">
+                <p>Organize sua vida <b>financeira.</b></p>
+                <a id="baixar" class="btn btn-warning btn-sm" href="content/Planilha orçamento familiar.xlsx" download>Download</a>
+            </div>
+        </div>
     </section>    
 </main>
 
@@ -313,7 +319,7 @@
         var sulValores = [100000, 200000, 300000];        
 
         self.deveCarregarMapa = ko.observable(true);
-        self.passo = ko.observable(1);
+        self.passo = ko.observable(5);
         self.id = ko.observable(0);
         self.valorParcela = ko.observable('');
         self.valorImovel = ko.observable('');  
