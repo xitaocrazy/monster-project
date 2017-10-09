@@ -126,14 +126,6 @@ input[type="text"], input[type="email"] {
     font-family: 'Lato', sans-serif;
 }
 
-footer {
-    background-color: #E4E0E0;
-    padding-top: 20px;
-    padding-bottom: 10px;
-    color: #000000;
-    text-align: center;
-}
-
 #section-tipo-de-familia button, #section-renda button {
     width: 160px;
     height: 160px;
@@ -195,4 +187,18 @@ footer {
 #section-resultado .img {
     max-width: 120px;
     margin: 1vh;
+}
+
+.map {
+    width: 536px;
+    height: auto;
+    object-fit: contain;
+}
+
+footer {
+    background-color: #E4E0E0;
+    padding-top: 20px;
+    padding-bottom: 10px;
+    color: #000000;
+    text-align: center;
 }
