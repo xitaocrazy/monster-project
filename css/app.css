@@ -16,6 +16,7 @@ body{
     height: 100%;
     background-color: #464444;
     color: #ffffff;
+    font-family: 'Exo 2', sans-serif;
 }
 
 header {
@@ -23,7 +24,7 @@ header {
     background-image: url('../img/sofa-header.png');
     background-size: cover;
     background-position: top center;
-    height: 30%; 
+    height: 30%;
 }
 
 main {
@@ -50,6 +51,15 @@ main {
     color: #E65290;
 }
 
+span.text-highlighted {
+    color: var(--color-text-highlighted);
+}
+
+img.icon ~ p {
+    margin-top: 1em;
+    font-size: 1.8rem;
+}
+
 #section-idade img {
     max-width: 140px;
 }
@@ -57,12 +67,10 @@ main {
     max-width: 182px;
 }
 
-#ou {
+#ou > * {
     text-align: center;
-    padding-top: 20%;
-    color: #E65290;
-    font-size: 20px;
-    font-weight: bold;    
+    color: var(--color-text-highlighted) !important;
+    font-weight: 600 !important;
 }
 
 .nome-email {
@@ -75,6 +83,10 @@ main {
 
 .nome-email input{
     border-radius: 10px;
+}
+
+input[type="text"], input[type="email"] {
+    font-family: 'Lato', sans-serif;
 }
 
 footer {

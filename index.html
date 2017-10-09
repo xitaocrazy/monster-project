@@ -42,22 +42,22 @@
     <!-- Landing Page -->
     <section id="section-landing-page" data-bind="visible: passo() === 1">
         <div class="container">
-            <div class="text">
-                <p>Em quanto <b>tempo</b> eu vou quitar meu imóvel?</p>
+            <div class="row text">
+                <h2>Em quanto <span class="text-highlighted">tempo</span> eu vou quitar meu imóvel?</h2>
             </div>
             <div id="section-idade">
                 <div class="row justify-content-center">
                     <div class="col-xs-12 col-sm-12 col-md-10 col-md-offset-1 col-lg-8 col-lg-offset-2">
                         <div class="col-xs-12 col-sm-12 col-md-12 col-lg-4">
-                            <img class="img" src="img/ic_1a_baby.svg">
+                            <img class="icon" src="img/ic_1a_baby.svg">
                             <p>menos de 5 anos</p>
                         </div>
                         <div class="col-xs-12 col-sm-12 col-md-12 col-lg-4">
-                            <img class="img" src="img/ic_1b_adult.svg">
+                            <img class="icon" src="img/ic_1b_adult.svg">
                             <p>menos de 10 anos</p>
                         </div>
                         <div class="col-xs-12 col-sm-12  col-md-12 col-lg-4">
-                            <img class="img" src="img/ic_1c_oldman.svg">
+                            <img class="icon" src="img/ic_1c_oldman.svg">
                             <p>10 anos ou mais</p>
                         </div>
                     </div>
@@ -65,68 +65,71 @@
             </div>
         </div>
         <div class="container">
-            <div class="text">
-                <p>Qual imóvel eu <b>consigo</b> comprar?</p>
+            <div class="row text">
+                <h2>Qual imóvel eu <span class="text-highlighted">consigo</span> comprar?</h2>
             </div>
             <div id="section-tipo-imovel">
                 <div class="row justify-content-center">
                     <div class="col-xs-12 col-sm-12 col-md-10 col-md-offset-1 col-lg-8 col-lg-offset-2">
                         <div class="col-xs-12 col-sm-12 col-md-12 col-lg-4">
-                            <img class="img" src="img/ic_2a_smallhouse.svg">
+                            <img class="icon" src="img/ic_2a_smallhouse.svg">
+                            <p>1 dormitório</p>
                         </div>
                         <div class="col-xs-12 col-sm-12 col-md-12 col-lg-4">
-                            <img class="img" src="img/ic_2b_mediumhouse.svg">
+                            <img class="icon" src="img/ic_2b_mediumhouse.svg">
+                            <p>2 dormitórios</p>
                         </div>
                         <div class="col-xs-12 col-sm-12  col-md-12 col-lg-4">
-                            <img class="img" src="img/ic_2c_bighouse.svg">
+                            <img class="icon" src="img/ic_2c_bighouse.svg">
+                            <p>3+ dormitórios</p>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
         <div class="container">
-            <div class="text">
-                <p>Quer saber como você pode se planejar para comprar seu imóvel?</p>
+            <div class="row text">
+                <h2>Saiba como <span class="text-highlighted">planejar</span> a compra do seu primeiro imóvel</h2>
             </div>
             <div id="section-dados-pessoais">
                 <div class="row justify-content-center">
                     <div class="col-xs-12 col-sm-12 col-md-10 col-md-offset-1 col-lg-8 col-lg-offset-2">
-                        <div class="col-xs-12 col-sm-12 col-md-12 col-lg-4">
+                        <div class="col-xs-12 col-sm-12 col-md-4 col-md-offset-1 col-lg-3 col-lg-offset-2">
                             <h4>Valor da Parcela</h4>
                             <div class="radio">
                                 <label>
-                                    <input type="radio" value="1" name="valorParcela" data-bind="checked: valorParcela, click: limparValorImovel" />Até R$1000,00 
+                                    <input type="radio" value="1" name="valorParcela" data-bind="checked: valorParcela, click: limparValorImovel" />até R$1.000 
                                 </label>                    
                             </div>
                             <div class="radio">
                                 <label>
-                                    <input type="radio" value="2" name="valorParcela" data-bind="checked: valorParcela, click: limparValorImovel" />Até R$1500,00
+                                    <input type="radio" value="2" name="valorParcela" data-bind="checked: valorParcela, click: limparValorImovel" />até R$1.500
                                 </label>                
                             </div>
                             <div class="radio">
                                 <label>
-                                    <input type="radio" value="3" name="valorParcela" data-bind="checked: valorParcela, click: limparValorImovel" />Até R$2000,00
+                                    <input type="radio" value="3" name="valorParcela" data-bind="checked: valorParcela, click: limparValorImovel" />até R$2.000
                                 </label>                    
                             </div>
                         </div>
-                        <div class="col-xs-12 col-sm-12 col-md-12 col-lg-4">
-                            <div id="ou">OU</div>
+                        <div class="col-xs-12 col-sm-12 col-md-2 col-lg-2">
+                            <div id="ou"><h4>ou</h4></div>
                         </div>
-                        <div class="col-xs-12 col-sm-12  col-md-12 col-lg-4">
+                        <div class="col-xs-12 col-sm-12  col-md-4 col-lg-3">
                             <h4>Valor do Imóvel</h4>
                             <div class="radio">
                                 <label>
-                                    <input type="radio" value="1" name="valorImovel" data-bind="checked: valorImovel, click: limparValorParcela" />Até R$200 mil
+                                    <input type="radio" value="1" name="valorImovel" data-bind="checked: valorImovel, click: limparValorParcela" />até R$200 mil
                                 </label>                    
                             </div>
                             <div class="radio">
                                 <label>
-                                    <input type="radio" value="2" name="valorImovel" data-bind="checked: valorImovel, click: limparValorParcela" />Até R$400 mil
+                                    <input type="radio" value="2" name="valorImovel" data-bind="checked: valorImovel, click: limparValorParcela" />até R$400 mil
                                 </label>                
                             </div>
                             <div class="radio">
                                 <label>
-                                    <input type="radio" value="3" name="valorImovel" data-bind="checked: valorImovel, click: limparValorParcela" />Até R$500 mil
+                                    <input type="radio" value="3" name="valorImovel" data-bind="checked: valorImovel, click: limparValorParcela" />até R$500 mil
                                 </label>                    
                             </div>
                         </div>
