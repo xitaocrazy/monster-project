@@ -2,7 +2,9 @@
     --color-bg: #333;
     
     --color-text: #E5E5E5;
+    --color-text-dark: #333;
     --color-text-highlighted: #F5775B;
+    --color-text-highlighted-dark: #D14B2C;
 
     --color-btn-bg: #F5775B;
     --color-btn-text: #FFF;
@@ -21,10 +23,15 @@ body{
 
 header {
     text-align: center;
-    background-image: url('../img/sofa-header.png');
+    color: var(--color-text-dark);
+    font-weight: 600;
+    text-shadow: 2px 2px 12px #FFF;
+
+    background-image: url('../img/header_cover.jpg');
     background-size: cover;
-    background-position: top center;
-    height: 30%;
+    background-position: bottom left;
+    min-height: 50vh;
+
 }
 
 main {
