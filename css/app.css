@@ -25,20 +25,32 @@ header {
     text-align: center;
     color: var(--color-text-dark);
     font-weight: 600;
+
     text-shadow: 2px 2px 12px #FFF;
 
     background-image: url('../img/header_cover.jpg');
     background-size: cover;
     background-position: bottom left;
+
     min-height: 50vh;
-
+    padding-top: 2vh;
+    padding-bottom: 2vh;
 }
-
 main {
     text-align: center;
     min-height: 100%;
     height: auto !important;
     height: 100%;
+}
+
+.brand-header {
+    display: inline-block;
+    height: 120px;
+    margin-bottom: 5vh;
+}
+.website-name {
+    display: inline-block;
+    margin-left: 16px;
 }
 
 .text{
