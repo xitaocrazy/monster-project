@@ -40,6 +40,13 @@ main {
     color: #E65290;
 }
 
+#section-idade img {
+    max-width: 140px;
+}
+#section-tipo-imovel img {
+    max-width: 182px;
+}
+
 #ou {
     text-align: center;
     padding-top: 20%;
