@@ -309,10 +309,12 @@
                 </div>
             </div>
         </div>
-        <div class="row justify-content-center text">
+        <div class="row justify-content-center">
             <div class="col-xs-12 col-sm-12 col-md-10 col-md-offset-1 col-lg-8 col-lg-offset-2">
-                <p>Organize sua vida <b>financeira.</b></p>
-                <a id="baixar" class="btn btn-warning btn-sm" href="content/Planilha orçamento familiar.xlsx" download>Download</a>
+                <div class="text">
+                    <p>Organize sua vida <b>financeira.</b></p>
+                    <a id="baixar" class="btn btn-warning btn-sm" href="content/Planilha orçamento familiar.xlsx" download>Download</a>
+                </div>                
             </div>
         </div>
     </section>    
@@ -433,12 +435,18 @@
         }, this);
 
         self.casinha5AnosAtivo = ko.computed(function(){
+            if (self.tipoDeFamilia() > 1){
+                return false;
+            }
             var valor = casinhaValores[self.regiao()];
             var resultado = compararValores(valor, self.valorR$Parcela(), self.valorImovel5Anos(), self.valorR$Imovel());
             return resultado;
         }, this);
 
         self.casa5AnosAtivo = ko.computed(function(){
+            if (self.tipoDeFamilia() > 3){
+                return false;
+            }
             var valor = casaValores[self.regiao()];
             var resultado = compararValores(valor, self.valorR$Parcela(), self.valorImovel5Anos(), self.valorR$Imovel());
             return resultado;
@@ -451,12 +459,18 @@
         }, this);
 
         self.casinha10AnosAtivo = ko.computed(function(){
+            if (self.tipoDeFamilia() > 1){
+                return false;
+            }
             var valor = casinhaValores[self.regiao()];
             var resultado = compararValores(valor, self.valorR$Parcela(), self.valorImovel10Anos(), self.valorR$Imovel());
             return resultado;
         }, this);
 
         self.casa10AnosAtivo = ko.computed(function(){
+            if (self.tipoDeFamilia() > 3){
+                return false;
+            }
             var valor = casaValores[self.regiao()];
             var resultado = compararValores(valor, self.valorR$Parcela(), self.valorImovel10Anos(), self.valorR$Imovel());
             return resultado;
@@ -469,12 +483,18 @@
         }, this);
 
         self.casinha20AnosAtivo = ko.computed(function(){
+            if (self.tipoDeFamilia() > 1){
+                return false;
+            }
             var valor = casinhaValores[self.regiao()];
             var resultado = compararValores(valor, self.valorR$Parcela(), self.valorImovel20Anos(), self.valorR$Imovel());
             return resultado;
         }, this);
 
         self.casa20AnosAtivo = ko.computed(function(){
+            if (self.tipoDeFamilia() > 3){
+                return false;
+            }
             var valor = casaValores[self.regiao()];
             var resultado = compararValores(valor, self.valorR$Parcela(), self.valorImovel20Anos(), self.valorR$Imovel());
             return resultado;
