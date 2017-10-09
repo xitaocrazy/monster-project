@@ -136,14 +136,15 @@ footer {
     background-position: top center;
     border: 8px solid transparent !important;
     box-sizing: border-box !important;
-    box-shadow: none;
+    box-shadow: none !important;
+    border-radius: 16px !important;
 }
 
-#btnFamiliaPequena:hover {
+#section-tipo-de-familia button:hover, #section-renda button:hover {
     border: 8px solid var(--color-btn-bg) !important;
     transition: border-color 0.4s;
 }
-#btnFamiliaPequena:hover ~ p {
+#section-tipo-de-familia button:hover ~ p, #section-renda button:hover ~ p {
     color: var(--color-text-highlighted);
 }
 
