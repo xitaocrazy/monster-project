@@ -186,11 +186,11 @@
             <div id="mapa" class="col-xs-12 col-sm-12 col-md-10 col-md-offset-2 col-lg-8 col-lg-offset-4">
                 <img src="img/mapa.png" alt="mapa-floripa" class="map" usemap="#floripa" />
                 <map name="floripa">
-                    <area shape="rect" id="Continente" title="Continente" alt="Continente" href="#" coords="10,35,200,610" data-bind="click: setarRegiao.bind($data, 1)" data-maphilight="{&quot;stroke&quot;:false,&quot;fillColor&quot;:&quot;E3F353&quot;,&quot;fillOpacity&quot;:0.6}" >
-                    <area shape="rect" id="Continente" title="Norte" alt="Norte" href="#" coords="325,50,520,200" data-bind="click: setarRegiao.bind($data, 2)" data-maphilight="{&quot;stroke&quot;:false,&quot;fillColor&quot;:&quot;E3F353&quot;,&quot;fillOpacity&quot;:0.6}">
-                    <area shape="rect" id="Continente" title="Centro" alt="Centro" href="#" coords="385,380,300,200" data-bind="click: setarRegiao.bind($data, 3)" data-maphilight="{&quot;stroke&quot;:false,&quot;fillColor&quot;:&quot;E3F353&quot;,&quot;fillOpacity&quot;:0.6}">
-                    <area shape="rect" id="Continente" title="Leste" alt="Leste" href="#" coords="385,380,465,200" data-bind="click: setarRegiao.bind($data, 4)" data-maphilight="{&quot;stroke&quot;:false,&quot;fillColor&quot;:&quot;E3F353&quot;,&quot;fillOpacity&quot;:0.6}">
-                    <area shape="rect" id="Continente" title="Sul" alt="Sul" href="#" coords="280,560,400,380" data-bind="click: setarRegiao.bind($data, 5)" data-maphilight="{&quot;stroke&quot;:false,&quot;fillColor&quot;:&quot;E3F353&quot;,&quot;fillOpacity&quot;:0.6}">
+                    <area shape="rect" id="Continente" title="Continente" alt="Continente" href="#" coords="10,35,200,610" data-bind="click: setarRegiao.bind($data, 0)" data-maphilight="{&quot;stroke&quot;:false,&quot;fillColor&quot;:&quot;E3F353&quot;,&quot;fillOpacity&quot;:0.6}" >
+                    <area shape="rect" id="Continente" title="Norte" alt="Norte" href="#" coords="325,50,520,200" data-bind="click: setarRegiao.bind($data, 1)" data-maphilight="{&quot;stroke&quot;:false,&quot;fillColor&quot;:&quot;E3F353&quot;,&quot;fillOpacity&quot;:0.6}">
+                    <area shape="rect" id="Continente" title="Centro" alt="Centro" href="#" coords="385,380,300,200" data-bind="click: setarRegiao.bind($data, 2)" data-maphilight="{&quot;stroke&quot;:false,&quot;fillColor&quot;:&quot;E3F353&quot;,&quot;fillOpacity&quot;:0.6}">
+                    <area shape="rect" id="Continente" title="Leste" alt="Leste" href="#" coords="385,380,465,200" data-bind="click: setarRegiao.bind($data, 3)" data-maphilight="{&quot;stroke&quot;:false,&quot;fillColor&quot;:&quot;E3F353&quot;,&quot;fillOpacity&quot;:0.6}">
+                    <area shape="rect" id="Continente" title="Sul" alt="Sul" href="#" coords="280,560,400,380" data-bind="click: setarRegiao.bind($data, 4)" data-maphilight="{&quot;stroke&quot;:false,&quot;fillColor&quot;:&quot;E3F353&quot;,&quot;fillOpacity&quot;:0.6}">
                 </map>
                     
             </div>
@@ -248,14 +248,20 @@
                 <div class="col-xs-12 col-sm-12 col-md-3 col-lg-3">
                     <img class="img" src="img/casal-novinhos.png">
                 </div>
-                <div class="col-xs-12 col-sm-12 col-md-3 col-lg-3">
-                    <img class="img" src="img/casinha-branca.png">
+                <div class="col-xs-12 col-sm-12 col-md-3 col-lg-3" >
+                    <div data-bind="visible: casinha5AnosAtivo">
+                        <img class="img" src="img/casinha-branca.png" >  
+                    </div>                 
                 </div>
                 <div class="col-xs-12 col-sm-12  col-md-3 col-lg-3">
-                    <img class="img" src="img/casinha-branca.png">
+                    <div data-bind="visible: casa5AnosAtivo">
+                        <img class="img" src="img/casinha-branca.png" >  
+                    </div> 
                 </div>
                 <div class="col-xs-12 col-sm-12  col-md-3 col-lg-3">
-                    <img class="img" src="img/casinha-branca.png">
+                    <div data-bind="visible: casao5AnosAtivo">
+                        <img class="img" src="img/casinha-branca.png" >  
+                    </div> 
                 </div>
             </div>
         </div>
@@ -264,14 +270,20 @@
                 <div class="col-xs-12 col-sm-12 col-md-3 col-lg-3">
                     <img class="img" src="img/casal.png">
                 </div>
-                <div class="col-xs-12 col-sm-12 col-md-3 col-lg-3">
-                    <img class="img" src="img/casinha-branca.png">
+                <div class="col-xs-12 col-sm-12 col-md-3 col-lg-3" >
+                    <div data-bind="visible: casinha10AnosAtivo">
+                        <img class="img" src="img/casinha-branca.png" >  
+                    </div>                 
                 </div>
                 <div class="col-xs-12 col-sm-12  col-md-3 col-lg-3">
-                    <img class="img" src="img/casinha-branca.png">
+                    <div data-bind="visible: casa10AnosAtivo">
+                        <img class="img" src="img/casinha-branca.png" >  
+                    </div> 
                 </div>
                 <div class="col-xs-12 col-sm-12  col-md-3 col-lg-3">
-                    <img class="img" src="img/casinha-branca.png">
+                    <div data-bind="visible: casao10AnosAtivo">
+                        <img class="img" src="img/casinha-branca.png" >  
+                    </div> 
                 </div>
             </div>
         </div>
@@ -280,14 +292,20 @@
                 <div class="col-xs-12 col-sm-12 col-md-3 col-lg-3">
                     <img class="img" src="img/casal-velhinhos.png">
                 </div>
-                <div class="col-xs-12 col-sm-12 col-md-3 col-lg-3">
-                    <img class="img" src="img/casinha-branca.png">
+                <div class="col-xs-12 col-sm-12 col-md-3 col-lg-3" >
+                    <div data-bind="visible: casinha20AnosAtivo">
+                        <img class="img" src="img/casinha-branca.png" >  
+                    </div>                 
                 </div>
                 <div class="col-xs-12 col-sm-12  col-md-3 col-lg-3">
-                    <img class="img" src="img/casinha-branca.png">
+                    <div data-bind="visible: casa20AnosAtivo">
+                        <img class="img" src="img/casinha-branca.png" >  
+                    </div> 
                 </div>
                 <div class="col-xs-12 col-sm-12  col-md-3 col-lg-3">
-                    <img class="img" src="img/casinha-branca.png">
+                    <div data-bind="visible: casao20AnosAtivo">
+                        <img class="img" src="img/casinha-branca.png" >  
+                    </div> 
                 </div>
             </div>
         </div>
@@ -312,11 +330,10 @@
 <script type="text/javascript">
     var viewModel = function () {
         self = this;
-        var continenteValores = [100000, 200000, 300000];
-        var norteValores = [100000, 200000, 300000];
-        var centroValores = [200000, 400000, 600000];
-        var lesteValores = [200000, 400000, 600000];
-        var sulValores = [100000, 200000, 300000];        
+                           //[continente, norte, centro, leste, sul ]
+        var casinhaValores = [100000, 100000, 200000, 200000, 100000];
+        var casaValores =    [200000, 200000, 400000, 400000, 200000];
+        var casaoValores =   [300000, 300000, 600000, 600000, 300000];        
 
         self.deveCarregarMapa = ko.observable(true);
         self.passo = ko.observable(1);
@@ -413,6 +430,60 @@
             var jurosParcela = parcela * 0.120
             parcela = parcela + jurosParcela;
             return parcela;
+        }, this);
+
+        self.casinha5AnosAtivo = ko.computed(function(){
+            var valor = casinhaValores[self.regiao()];
+            var resultado = compararValores(valor, self.valorR$Parcela(), self.valorImovel5Anos(), self.valorR$Imovel());
+            return resultado;
+        }, this);
+
+        self.casa5AnosAtivo = ko.computed(function(){
+            var valor = casaValores[self.regiao()];
+            var resultado = compararValores(valor, self.valorR$Parcela(), self.valorImovel5Anos(), self.valorR$Imovel());
+            return resultado;
+        }, this);
+
+        self.casao5AnosAtivo = ko.computed(function(){
+            var valor = casaoValores[self.regiao()];
+            var resultado = compararValores(valor, self.valorR$Parcela(), self.valorImovel5Anos(), self.valorR$Imovel());
+            return resultado;
+        }, this);
+
+        self.casinha10AnosAtivo = ko.computed(function(){
+            var valor = casinhaValores[self.regiao()];
+            var resultado = compararValores(valor, self.valorR$Parcela(), self.valorImovel10Anos(), self.valorR$Imovel());
+            return resultado;
+        }, this);
+
+        self.casa10AnosAtivo = ko.computed(function(){
+            var valor = casaValores[self.regiao()];
+            var resultado = compararValores(valor, self.valorR$Parcela(), self.valorImovel10Anos(), self.valorR$Imovel());
+            return resultado;
+        }, this);
+
+        self.casao10AnosAtivo = ko.computed(function(){
+            var valor = casaoValores[self.regiao()];
+            var resultado = compararValores(valor, self.valorR$Parcela(), self.valorImovel10Anos(), self.valorR$Imovel());
+            return resultado;
+        }, this);
+
+        self.casinha20AnosAtivo = ko.computed(function(){
+            var valor = casinhaValores[self.regiao()];
+            var resultado = compararValores(valor, self.valorR$Parcela(), self.valorImovel20Anos(), self.valorR$Imovel());
+            return resultado;
+        }, this);
+
+        self.casa20AnosAtivo = ko.computed(function(){
+            var valor = casaValores[self.regiao()];
+            var resultado = compararValores(valor, self.valorR$Parcela(), self.valorImovel20Anos(), self.valorR$Imovel());
+            return resultado;
+        }, this);
+
+        self.casao20AnosAtivo = ko.computed(function(){
+            var valor = casaoValores[self.regiao()];
+            var resultado = compararValores(valor, self.valorR$Parcela(), self.valorImovel20Anos(), self.valorR$Imovel());
+            return resultado;
         }, this);
                
         self.limparValorImovel = function(){
@@ -521,6 +592,19 @@
                     alert('error');
                 });
         } 
+        function compararValores(valorMedio, valorParcela, valorPeriodo, valorImovel){
+            if (valorParcela !== 0){
+                if (valorPeriodo < valorMedio){
+                    return false;
+                }
+            }
+            if (valorImovel !== 0){
+                if (valorImovel < valorMedio){
+                    return false;
+                }
+            }
+            return true;
+        }
         
         $( document ).ready(function() {
             self.deveCarregarMapa(false);
