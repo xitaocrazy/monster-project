@@ -438,6 +438,9 @@
             if (self.tipoDeFamilia() > 1){
                 return false;
             }
+            if (!compararRenda(self.valorR$Parcela(), self.valorParcela5Anos(), self.valorR$Imovel())){
+                return false;
+            }
             var valor = casinhaValores[self.regiao()];
             var resultado = compararValores(valor, self.valorR$Parcela(), self.valorImovel5Anos(), self.valorR$Imovel());
             return resultado;
@@ -447,12 +450,18 @@
             if (self.tipoDeFamilia() > 3){
                 return false;
             }
+            if (!compararRenda(self.valorR$Parcela(), self.valorParcela5Anos(), self.valorR$Imovel())){
+                return false;
+            }
             var valor = casaValores[self.regiao()];
             var resultado = compararValores(valor, self.valorR$Parcela(), self.valorImovel5Anos(), self.valorR$Imovel());
             return resultado;
         }, this);
 
         self.casao5AnosAtivo = ko.computed(function(){
+            if (!compararRenda(self.valorR$Parcela(), self.valorParcela10Anos(), self.valorR$Imovel())){
+                return false;
+            }
             var valor = casaoValores[self.regiao()];
             var resultado = compararValores(valor, self.valorR$Parcela(), self.valorImovel5Anos(), self.valorR$Imovel());
             return resultado;
@@ -460,6 +469,9 @@
 
         self.casinha10AnosAtivo = ko.computed(function(){
             if (self.tipoDeFamilia() > 1){
+                return false;
+            }
+            if (!compararRenda(self.valorR$Parcela(), self.valorParcela10Anos(), self.valorR$Imovel())){
                 return false;
             }
             var valor = casinhaValores[self.regiao()];
@@ -471,12 +483,18 @@
             if (self.tipoDeFamilia() > 3){
                 return false;
             }
+            if (!compararRenda(self.valorR$Parcela(), self.valorParcela10Anos(), self.valorR$Imovel())){
+                return false;
+            }
             var valor = casaValores[self.regiao()];
             var resultado = compararValores(valor, self.valorR$Parcela(), self.valorImovel10Anos(), self.valorR$Imovel());
             return resultado;
         }, this);
 
         self.casao10AnosAtivo = ko.computed(function(){
+            if (!compararRenda(self.valorR$Parcela(), self.valorParcela10Anos(), self.valorR$Imovel())){
+                return false;
+            }
             var valor = casaoValores[self.regiao()];
             var resultado = compararValores(valor, self.valorR$Parcela(), self.valorImovel10Anos(), self.valorR$Imovel());
             return resultado;
@@ -484,6 +502,9 @@
 
         self.casinha20AnosAtivo = ko.computed(function(){
             if (self.tipoDeFamilia() > 1){
+                return false;
+            }
+            if (!compararRenda(self.valorR$Parcela(), self.valorParcela20Anos(), self.valorR$Imovel())){
                 return false;
             }
             var valor = casinhaValores[self.regiao()];
@@ -495,12 +516,18 @@
             if (self.tipoDeFamilia() > 3){
                 return false;
             }
+            if (!compararRenda(self.valorR$Parcela(), self.valorParcela20Anos(), self.valorR$Imovel())){
+                return false;
+            }
             var valor = casaValores[self.regiao()];
             var resultado = compararValores(valor, self.valorR$Parcela(), self.valorImovel20Anos(), self.valorR$Imovel());
             return resultado;
         }, this);
 
         self.casao20AnosAtivo = ko.computed(function(){
+            if (!compararRenda(self.valorR$Parcela(), self.valorParcela20Anos(), self.valorR$Imovel())){
+                return false;
+            }
             var valor = casaoValores[self.regiao()];
             var resultado = compararValores(valor, self.valorR$Parcela(), self.valorImovel20Anos(), self.valorR$Imovel());
             return resultado;
@@ -623,6 +650,20 @@
                     return false;
                 }
             }
+            return true;
+        }
+        function compararRenda(valorParcela, valorParcelaPeriodo, valorImovel){
+            var trintaPorCento = self.renda() * 0.30;
+            if (valorParcela !== 0){
+                if (valorParcela > trintaPorCento){
+                    return false;
+                }
+            }
+            if (valorImovel !== 0){
+                if (valorParcelaPeriodo > trintaPorCento){
+                    return false;
+                }
+            }            
             return true;
         }
         
