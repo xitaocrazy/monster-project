@@ -42,6 +42,17 @@ main {
     height: auto !important;
     height: 100%;
 }
+section {
+    margin-bottom: 5vh;
+}
+
+.btn {
+    background-color: var(--color-btn-bg);
+    color: var(--color-btn-text);
+}
+.btn:hover {
+    background-color: var(--color-text-highlighted-dark);
+}
 
 .brand-header {
     display: inline-block;
