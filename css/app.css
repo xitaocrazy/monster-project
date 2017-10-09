@@ -134,23 +134,33 @@ footer {
     background-repeat: no-repeat;
     background-size: cover;
     background-position: top center;
-    border-color: transparent !important;
+    border: 8px solid transparent !important;
+    box-sizing: border-box !important;
+    box-shadow: none;
+}
+
+#btnFamiliaPequena:hover {
+    border: 8px solid var(--color-btn-bg) !important;
+    transition: border-color 0.4s;
+}
+#btnFamiliaPequena:hover ~ p {
+    color: var(--color-text-highlighted);
 }
 
 #btnFamiliaPequena {
-    background-image: url('../img/casal-novinhos.png');
+    background-image: url('../img/ic_3a_nofamily.svg');
 }
 
 #btnFamiliaMedia {
-    background-image: url('../img/casal.png');
+    background-image: url('../img/ic_3b_family0.svg');
 }
 
 #btnFamiliaGrande {
-    background-image: url('../img/casal-velhinhos.png');
+    background-image: url('../img/ic_3c_family1.svg');
 }
 
 #btnFamiliaGG {
-    background-image: url('../img/casal-velhinhos.png');
+    background-image: url('../img/ic_3d_family2more.svg');
 }
 
 #btnRendaPequena {
