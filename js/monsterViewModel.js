@@ -346,9 +346,8 @@ function monsterViewModel () {
         }
     }    
     function cadastrar(){
-        var params = {valorParcela: self.valorR$Parcela(), valorImovel: self.valorR$Imovel(), nome: self.nome(), email: self.email()}
-        var url = "http://www.meuprimeiroimovel.com.br/storeLead";
-        $.post(url, params)
+        var url = '127.0.0.1:8000/storeLead?valorParcela=' + self.valorR$Parcela() + '&valorImovel=' + self.valorR$Imovel() + '&nome=' + self.nome() + '&email=' + self.email();
+        $.post(url)
             .done(function(result) {
                 self.id(result.id);
                 proximoPasso();
@@ -373,9 +372,8 @@ function monsterViewModel () {
                 tipo = 'Casal com mais de um filho';
                 break;
         }
-        var params = {id: self.id(), tipoFamilia: tipo}
-        var url = "http://www.meuprimeiroimovel.com.br/updateLeadFamilia";
-        $.post(url, params)
+        var url = '127.0.0.1:8000/updateLeadFamilia?id=' + self.id() + '&tipoFamilia=' + tipo;
+        $.post(url)
             .done(function(result) {
                 if (result.updated){
                     proximoPasso();
@@ -389,9 +387,8 @@ function monsterViewModel () {
     }  
     function salvarRegiao(){
         var regiaoSelecionada = regioes[self.regiao()];
-        var params = {id: self.id(), regiao: regiaoSelecionada}
-        var url = "http://www.meuprimeiroimovel.com.br/updateLeadRegiao";
-        $.post(url, params)
+        var url = '127.0.0.1:8000/updateLeadRegiao?id=' + self.id() + '&regiao=' + regiaoSelecionada;
+        $.post(url)
             .done(function(result) {
                 if (result.updated){
                     proximoPasso();
@@ -404,9 +401,8 @@ function monsterViewModel () {
             });
     }  
     function salvarRenda(){
-        var params = {id: self.id(), renda: self.renda()}
-        var url = "http://www.meuprimeiroimovel.com.br/updateLeadRenda";
-        $.post(url, params)
+        var url = '127.0.0.1:8000/updateLeadRenda?id=' + self.id() + '&renda=' + self.renda();
+        $.post(url)
             .done(function(result) {
                 if (result.updated){
                     proximoPasso();
