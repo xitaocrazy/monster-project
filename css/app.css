@@ -214,3 +214,39 @@ footer {
     color: #000000;
     text-align: center;
 }
+
+
+/* ---------   MAPA   */
+.map_floripa {
+    max-width: 96%
+}
+#norte {
+    opacity: 0;
+}
+#norte:hover {
+    opacity: 1;
+}
+#leste {
+    opacity: 0;
+}
+#leste:hover {
+    opacity: 1;
+}
+#centro {
+    opacity: 0;
+}
+#centro:hover {
+    opacity: 1;
+}
+#sul {
+    opacity: 0;
+}
+#sul:hover {
+    opacity: 1;
+}
+#continente {
+    opacity: 0;
+}
+#continente:hover {
+    opacity: 1;
+}
