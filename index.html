@@ -20,15 +20,7 @@
     
     <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.9.0/jquery.min.js"></script>
     <script type="text/javascript" src="js/jquery.maphilight.min.js"></script>
-    <script type="text/javascript">$(function() {
-        $('.map').maphilight();
-        $('#squidheadlink').mouseover(function(e) {
-            $('#squidhead').mouseover();
-        }).mouseout(function(e) {
-            $('#squidhead').mouseout();
-        }).click(function(e) { e.preventDefault(); });
-    });</script>
-
+    <script type="text/javascript" src="js/monsterViewModel.js"></script>
 </head>
 <body>
 <header>
@@ -102,17 +94,22 @@
                             <h4>Valor da Parcela</h4>
                             <div class="radio">
                                 <label>
-                                    <input type="radio" value="1" name="valorParcela" data-bind="checked: valorParcela, click: limparValorImovel" />até R$1.000 
+                                    <input type="radio" value="1" name="valorParcela" data-bind="checked: valorParcela, click: limparValorImovel" />até R$1.500 
                                 </label>                    
                             </div>
                             <div class="radio">
                                 <label>
-                                    <input type="radio" value="2" name="valorParcela" data-bind="checked: valorParcela, click: limparValorImovel" />até R$1.500
+                                    <input type="radio" value="2" name="valorParcela" data-bind="checked: valorParcela, click: limparValorImovel" />até R$2.000
                                 </label>                
                             </div>
                             <div class="radio">
                                 <label>
-                                    <input type="radio" value="3" name="valorParcela" data-bind="checked: valorParcela, click: limparValorImovel" />até R$2.000
+                                    <input type="radio" value="3" name="valorParcela" data-bind="checked: valorParcela, click: limparValorImovel" />até R$2.500
+                                </label>                    
+                            </div>
+                            <div class="radio">
+                                <label>
+                                    <input type="radio" value="4" name="valorParcela" data-bind="checked: valorParcela, click: limparValorImovel" />até R$3.000
                                 </label>                    
                             </div>
                         </div>
@@ -134,6 +131,11 @@
                             <div class="radio">
                                 <label>
                                     <input type="radio" value="3" name="valorImovel" data-bind="checked: valorImovel, click: limparValorParcela" />até R$500 mil
+                                </label>                    
+                            </div>
+                            <div class="radio">
+                                <label>
+                                    <input type="radio" value="4" name="valorImovel" data-bind="checked: valorImovel, click: limparValorParcela" />até R$1 milhão
                                 </label>                    
                             </div>
                         </div>
@@ -216,20 +218,20 @@
         <div class="row justify-content-center">
             <div class="col-xs-12 col-sm-12 col-md-10 col-md-offset-1 col-lg-8 col-lg-offset-2">
                 <div class="col-xs-12 col-sm-12 col-md-3 col-lg-3">
-                    <button id="btnRendaPequena" class="btn" data-bind="click: setarRenda.bind($data, 1000)"></button>
-                    <p>até R$1.000,00</p>
-                </div>
-                <div class="col-xs-12 col-sm-12 col-md-3 col-lg-3">
-                    <button id="btnRendaMedia" class="btn" data-bind="click: setarRenda.bind($data, 3000)"></button>
+                    <button id="btnRendaPequena" class="btn" data-bind="click: setarRenda.bind($data, 3000)"></button>
                     <p>até R$3.000,00</p>
                 </div>
-                <div class="col-xs-12 col-sm-12  col-md-3 col-lg-3">
-                    <button id="btnRendaGrande" class="btn" data-bind="click: setarRenda.bind($data, 5000)"></button>
-                    <p>até R$5.000,00</p>
+                <div class="col-xs-12 col-sm-12 col-md-3 col-lg-3">
+                    <button id="btnRendaMedia" class="btn" data-bind="click: setarRenda.bind($data, 5000)"></button>
+                    <p>até R$5000,00</p>
                 </div>
                 <div class="col-xs-12 col-sm-12  col-md-3 col-lg-3">
-                    <button id="btnRendaGG" class="btn" data-bind="click: setarRenda.bind($data, 7500)"></button>
-                    <p>mais de R$5.000,00</p>
+                    <button id="btnRendaGrande" class="btn" data-bind="click: setarRenda.bind($data, 8000)"></button>
+                    <p>até R$8.000,00</p>
+                </div>
+                <div class="col-xs-12 col-sm-12  col-md-3 col-lg-3">
+                    <button id="btnRendaGG" class="btn" data-bind="click: setarRenda.bind($data, 10000)"></button>
+                    <p>mais de R$8.000,00</p>
                 </div>
             </div>
         </div>
@@ -239,6 +241,17 @@
         <div class="row text">
             <p>Veja os <span class="text-highlighted">resultados</span> que combinam com você!</p>
             <br />
+        </div>
+        <div class="row justify-content-center detalhes">
+            <div class="col-xs-12 col-sm-12 col-md-10 col-md-offset-1 col-lg-8 col-lg-offset-2">
+                <div>
+                    <ul class="list-unstyled" data-bind="foreach: opcoesSelecionadas">
+                        <li>
+                            <b data-bind="text: $data"></b>
+                        </li>
+                    </ul>
+                </div>               
+            </div>
         </div>
         <div class="row">
             <div class="col-xs-12 col-sm-12 col-md-10 col-md-offset-1 col-lg-8 col-lg-offset-2 table-responsive">
@@ -312,7 +325,6 @@
                 </table>
             </div>
         </div>
-
         <div class="row justify-content-center detalhes">
             <div class="col-xs-12 col-sm-12 col-md-10 col-md-offset-1 col-lg-8 col-lg-offset-2">
                 <div>
@@ -349,417 +361,7 @@
 </body>
 
 <script type="text/javascript">
-    var viewModel = function () {
-        self = this;
-                           //[continente, norte, centro, leste, sul ]
-        var casinhaValores = [100000, 100000, 200000, 200000, 100000];
-        var casaValores =    [200000, 200000, 400000, 400000, 200000];
-        var casaoValores =   [300000, 300000, 600000, 600000, 300000];        
-
-        self.deveCarregarMapa = ko.observable(true);
-        self.passo = ko.observable(1);
-        self.id = ko.observable(0);
-        self.valorParcela = ko.observable('');
-        self.valorImovel = ko.observable('');  
-        self.nome = ko.observable(''); 
-        self.email = ko.observable(''); 
-        self.tipoDeFamilia = ko.observable(1);
-        self.renda = ko.observable(0);
-        self.regiao = ko.observable(0);
-        self.temErroNoNome = ko.observable(false); 
-        self.temErroNoEmail = ko.observable(false);
-        self.resultadoDetalhesDistintos = ko.observableArray([]);
-        self.resultadoDetalhes = ko.observableArray([]);
-        self.dummyObservable = ko.observable();
-        
-        self.deveIniciarORegistro = ko.computed(function(){
-            return (self.valorParcela() !== '' || self.valorImovel() !== '') &&
-                    self.nome() !== '' &&
-                    self.email() !== '';
-        }, this);
-        self.valorR$Parcela = ko.computed(function(){
-            var valor = 0;
-            switch (self.valorParcela()){
-                case '1':
-                    valor = 1000;
-                    break;
-                case '2':
-                    valor = 1500;
-                    break;
-                case '3':
-                    valor = 2000;
-                    break;
-                default:
-                    valor = 0;
-                    break;
-            }
-            return valor;
-        }, this);
-        self.valorR$Imovel = ko.computed(function(){
-            var valor = 0;
-            switch (self.valorImovel()){
-                case '1':
-                    valor = 200000;
-                    break;
-                case '2':
-                    valor = 400000;
-                    break;
-                case '3':
-                    valor = 500000;
-                    break;
-                default:
-                    valor = 0;
-                    break;
-            }
-            return valor;
-        }, this); 
-        self.valorImovel5Anos = ko.computed(function(){
-            var parcela = self.valorR$Parcela();                                   
-            var jurosParcela = parcela * 0.060;
-            parcela = parcela - jurosParcela;
-            var valorImovel5Anos = parcela * 60;
-            return valorImovel5Anos;
-        }, this);
-        self.valorImovel10Anos = ko.computed(function(){
-            var parcela = self.valorR$Parcela();                                   
-            var jurosParcela = parcela * 0.080;
-            parcela = parcela - jurosParcela;
-            var valorImovel10Anos = parcela * 120;
-            return valorImovel10Anos;
-        }, this);
-        self.valorImovel20Anos = ko.computed(function(){
-            var parcela = self.valorR$Parcela();                                   
-            var jurosParcela = parcela * 0.120
-            parcela = parcela - jurosParcela;
-            var valorImovel20Anos = parcela * 240;
-            return valorImovel20Anos;
-        }, this);
-        self.valorParcela5Anos = ko.computed(function(){
-            var imovel = self.valorR$Imovel(); 
-            var parcela =  imovel / 60;                                
-            var jurosParcela = parcela * 0.060;
-            parcela = parcela + jurosParcela;
-            return parcela;
-        }, this);
-        self.valorParcela10Anos = ko.computed(function(){
-            var imovel = self.valorR$Imovel();  
-            var parcela =  imovel / 120;                                 
-            var jurosParcela = parcela * 0.080;
-            parcela = parcela + jurosParcela;
-            return parcela;
-        }, this);
-        self.valorParcela20Anos = ko.computed(function(){
-            var imovel = self.valorR$Imovel(); 
-            var parcela =  imovel / 240;                                  
-            var jurosParcela = parcela * 0.120
-            parcela = parcela + jurosParcela;
-            return parcela;
-        }, this);
-        self.casinha5AnosAtivo = ko.computed(function(){
-            self.dummyObservable();
-            if (self.tipoDeFamilia() > 1){
-                return false;
-            }
-            if (!compararRenda(self.valorR$Parcela(), self.valorParcela5Anos(), self.valorR$Imovel())){
-                self.resultadoDetalhes.push('O valor das parcelas em 5 anos, para casas pequenas, é maior do que 30% da renda informada.')
-                return false;
-            }
-            var valor = casinhaValores[self.regiao()];
-            if (!compararValores(valor, self.valorR$Parcela(), self.valorImovel5Anos(), self.valorR$Imovel())){
-                self.resultadoDetalhes.push('O valor do imóvel em 5 anos, para casas pequenas, é menor do que a média da região.')
-                return false;
-            }
-            return true;
-        }, this);
-        self.casa5AnosAtivo = ko.computed(function(){
-            self.dummyObservable();
-            if (self.tipoDeFamilia() > 3){
-                return false;
-            }
-            if (!compararRenda(self.valorR$Parcela(), self.valorParcela5Anos(), self.valorR$Imovel())){
-                self.resultadoDetalhes.push('O valor das parcelas em 5 anos, para casas médias ou grandes, é maior do que 30% da renda informada.')
-                return false;
-            }
-            var valor = casaValores[self.regiao()];
-            if (!compararValores(valor, self.valorR$Parcela(), self.valorImovel5Anos(), self.valorR$Imovel())){
-                self.resultadoDetalhes.push('O valor do imóvel em 5 anos, para casas médias ou grandes, é menor do que a média da região.')
-                return false;
-            }
-            return true;
-        }, this);
-        self.casao5AnosAtivo = ko.computed(function(){
-            self.dummyObservable();
-            if (self.tipoDeFamilia() < 3){
-                return false;
-            }
-            if (!compararRenda(self.valorR$Parcela(), self.valorParcela10Anos(), self.valorR$Imovel())){
-                self.resultadoDetalhes.push('O valor das parcelas em 5 anos, para casas muito grandes, é maior do que 30% da renda informada.')
-                return false;
-            }
-            var valor = casaoValores[self.regiao()];
-            if (!compararValores(valor, self.valorR$Parcela(), self.valorImovel5Anos(), self.valorR$Imovel())){
-                self.resultadoDetalhes.push('O valor do imóvel em 5 anos, para casas muito grandes, é menor do que a média da região.')
-                return false;
-            }
-            return true;
-        }, this);
-        self.casinha10AnosAtivo = ko.computed(function(){
-            self.dummyObservable();
-            if (self.tipoDeFamilia() > 1){
-                return false;
-            }
-            if (!compararRenda(self.valorR$Parcela(), self.valorParcela10Anos(), self.valorR$Imovel())){
-                self.resultadoDetalhes.push('O valor das parcelas em 10 anos, para casas pequenas, é maior do que 30% da renda informada.')
-                return false;
-            }
-            var valor = casinhaValores[self.regiao()];
-            if (!compararValores(valor, self.valorR$Parcela(), self.valorImovel10Anos(), self.valorR$Imovel())){
-                self.resultadoDetalhes.push('O valor do imóvel em 5 anos, para casas pequenas, é menor do que a média da região.')
-                return false;
-            }
-            return true;
-        }, this);
-        self.casa10AnosAtivo = ko.computed(function(){
-            self.dummyObservable();
-            if (self.tipoDeFamilia() > 3){
-                return false;
-            }
-            if (!compararRenda(self.valorR$Parcela(), self.valorParcela10Anos(), self.valorR$Imovel())){
-                self.resultadoDetalhes.push('O valor das parcelas em 10 anos, para casas médias ou grandes, é maior do que 30% da renda informada.')
-                return false;
-            }
-            var valor = casaValores[self.regiao()];
-            if (!compararValores(valor, self.valorR$Parcela(), self.valorImovel10Anos(), self.valorR$Imovel())){
-                self.resultadoDetalhes.push('O valor do imóvel em 5 anos, para casas médias ou grandes, é menor do que a média da região.')
-                return false;
-            }
-            return true;
-        }, this);
-        self.casao10AnosAtivo = ko.computed(function(){
-            self.dummyObservable();
-            if (self.tipoDeFamilia() < 3){                
-                return false;
-            }
-            if (!compararRenda(self.valorR$Parcela(), self.valorParcela10Anos(), self.valorR$Imovel())){
-                self.resultadoDetalhes.push('O valor das parcelas em 10 anos, para casas muito grandes, é maior do que 30% da renda informada.')
-                return false;
-            }
-            var valor = casaoValores[self.regiao()];
-            if (!compararValores(valor, self.valorR$Parcela(), self.valorImovel10Anos(), self.valorR$Imovel())){
-                self.resultadoDetalhes.push('O valor do imóvel em 5 anos, para casas muito grandes, é menor do que a média da região.')
-                return false;
-            }
-            return true;
-        }, this);
-        self.casinha20AnosAtivo = ko.computed(function(){
-            self.dummyObservable();
-            if (self.tipoDeFamilia() > 1){
-                return false;
-            }
-            if (!compararRenda(self.valorR$Parcela(), self.valorParcela20Anos(), self.valorR$Imovel())){
-                self.resultadoDetalhes.push('O valor das parcelas em 20 anos, para casas pequenas, é maior do que 30% da renda informada.')
-                return false;
-            }
-            var valor = casinhaValores[self.regiao()];
-            if (!compararValores(valor, self.valorR$Parcela(), self.valorImovel20Anos(), self.valorR$Imovel())){
-                self.resultadoDetalhes.push('O valor do imóvel em 20 anos, para casas pequenas, é menor do que a média da região.')
-                return false;
-            }
-            return true;
-        }, this);
-        self.casa20AnosAtivo = ko.computed(function(){
-            self.dummyObservable();
-            if (self.tipoDeFamilia() > 3){
-                return false;
-            }
-            if (!compararRenda(self.valorR$Parcela(), self.valorParcela20Anos(), self.valorR$Imovel())){
-                self.resultadoDetalhes.push('O valor das parcelas em 20 anos, para casas médias ou grandes, é maior do que 30% da renda informada.')
-                return false;
-            }
-            var valor = casaValores[self.regiao()];
-            if (!compararValores(valor, self.valorR$Parcela(), self.valorImovel20Anos(), self.valorR$Imovel())){
-                self.resultadoDetalhes.push('O valor do imóvel em 5 anos, para casas médias ou grandes, é menor do que a média da região.')
-                return false;
-            }
-            return true;
-        }, this);
-        self.casao20AnosAtivo = ko.computed(function(){
-            self.dummyObservable();
-            if (self.tipoDeFamilia() < 3){
-                return false;
-            }
-            if (!compararRenda(self.valorR$Parcela(), self.valorParcela20Anos(), self.valorR$Imovel())){
-                self.resultadoDetalhes.push('O valor das parcelas em 20 anos, para casas muito grandes, é maior do que 30% da renda informada.')
-                return false;
-            }
-            var valor = casaoValores[self.regiao()];
-            if (!compararValores(valor, self.valorR$Parcela(), self.valorImovel20Anos(), self.valorR$Imovel())){
-                self.resultadoDetalhes.push('O valor do imóvel em 5 anos, para casas muito grandes, é menor do que a média da região.')
-                return false;
-            }
-            return true;
-        }, this);
-               
-        self.limparValorImovel = function(){
-            self.valorImovel('');
-            return true;
-        };
-        self.limparValorParcela = function(){
-            self.valorParcela('');
-            return true;
-        };
-        self.iniciarCadastro = function(valor){
-            ehNomeValido();
-            ehEmailValido();
-            if(!self.temErroNoNome() && !self.temErroNoEmail()) {
-                //cadastrar();
-                proximoPasso()
-            }
-        };
-        self.setarTipoDeFamilia = function(tipo){
-            var tipoDeFamilia = parseInt(tipo);
-            self.tipoDeFamilia(tipoDeFamilia);
-            //salvarTipoDeFamilia();
-            proximoPasso();
-        };
-        self.setarRegiao = function(regiao){
-            var regiaoDesejada = parseInt(regiao);
-            self.regiao(regiao);
-            //salvarRegiao();
-            proximoPasso();
-        };
-        self.setarRenda = function(valor){
-            var rendaInformada = parseFloat(valor);
-            self.renda(rendaInformada);
-            //salvarRenda();
-            proximoPasso();
-        };
-        self.verDetalhes = function(valor){
-            self.resultadoDetalhesDistintos([]);
-            self.resultadoDetalhes([]);
-
-            if (self.tipoDeFamilia() > 1){
-                self.resultadoDetalhes.push("Você já é um casal, recomendamos uma casa média ou grande.")
-            }
-            if (self.tipoDeFamilia() > 3){
-                self.resultadoDetalhes.push("Você tem uma família bem grande, recomendamos uma casa grande.")
-            }
-            if (self.tipoDeFamilia() < 3){
-                self.resultadoDetalhes.push("Você tem uma família pequena ou é solteiro, recomendamos uma casa média ou pequena.")
-            }
-            self.dummyObservable.notifySubscribers();
-            
-            var detalhes = self.resultadoDetalhes();
-            detalhes = detalhes.filter(function(item, pos) {
-                return detalhes.indexOf(item) == pos;
-            })
-            self.resultadoDetalhesDistintos(detalhes);
-        };
-        
-        function proximoPasso(){
-            var passo = self.passo() + 1;
-            self.passo(passo);
-        };
-        function passoAnterior(){
-            var passo = self.passo() - 1;
-            self.passo(passo);
-        };
-        function ehNomeValido(){
-            self.temErroNoNome(false);
-	        er = /^([a-zA-ZáéíóúàâêôãõüçÁÉÍÓÚÀÂÊÔÃÕÜÇ ]|\n){2,50} ([a-zA-ZáéíóúàâêôãõüçÁÉÍÓÚÀÂÊÔÃÕÜÇ ]|\n){2,50}$/; 
-	        if(!er.exec(self.nome())){
-                self.temErroNoNome(true);
-            }
-        }  
-        function ehEmailValido(){
-            self.temErroNoEmail(false);
-	        er = /^[A-Za-z0-9](([_.-]?[a-zA-Z0-9]+)*)@([A-Za-z0-9]+)(([.-]?[a-zA-Z0-9]+)*)([.][A-Za-z]{2,4})$/; 
-	        if(!er.exec(self.email())){
-                self.temErroNoEmail(true);
-            }
-        }    
-        function cadastrar(){
-            var params = {valorParcela: self.valorR$Parcela(), valorImovel: self.valorR$Imovel(), nome: self.nome(), email: self.email()}
-            var url = "http://www.meuprimeiroimovel.com.br/cadastrar.php";
-            $.post(url, params)
-                .done(function(result) {
-                    self.id(result.id);
-                    alert('success');
-                    proximoPasso();
-                })
-                .fail(function() {
-                    alert('error');
-                });
-        }  
-        function salvarTipoDeFamilia(){
-            var params = {id: self.id(), tipoFamilia: self.tipoDeFamilia()}
-            var url = "http://www.meuprimeiroimovel.com.br/salvartipodefamilia.php";
-            $.post(url, params)
-                .done(function() {
-                    alert('success');
-                    proximoPasso();
-                })
-                .fail(function() {
-                    alert('error');
-                });
-        }  
-        function salvarRegiao(){
-            var params = {id: self.id(), regiao: self.regiao()}
-            var url = "http://www.meuprimeiroimovel.com.br/salvarregiao.php";
-            $.post(url, params)
-                .done(function() {
-                    alert('success');
-                    proximoPasso();
-                })
-                .fail(function() {
-                    alert('error');
-                });
-        }  
-        function salvarRenda(){
-            var params = {id: self.id(), renda: self.renda()}
-            var url = "http://www.meuprimeiroimovel.com.br/salvarrenda.php";
-            $.post(url, params)
-                .done(function() {
-                    alert('success');
-                    proximoPasso();
-                })
-                .fail(function() {
-                    alert('error');
-                });
-        } 
-        function compararValores(valorMedio, valorParcela, valorPeriodo, valorImovel){
-            if (valorParcela !== 0){
-                if (valorPeriodo < valorMedio){
-                    return false;
-                }
-            }
-            if (valorImovel !== 0){
-                if (valorImovel < valorMedio){
-                    return false;
-                }
-            }
-            return true;
-        }
-        function compararRenda(valorParcela, valorParcelaPeriodo, valorImovel){
-            var trintaPorCento = self.renda() * 0.30;
-            if (valorParcela !== 0){
-                if (valorParcela > trintaPorCento){
-                    return false;
-                }
-            }
-            if (valorImovel !== 0){
-                if (valorParcelaPeriodo > trintaPorCento){
-                    return false;
-                }
-            }            
-            return true;
-        }
-        
-        $( document ).ready(function() {
-            self.deveCarregarMapa(false);
-        });
-    }
-
-    ko.applyBindings(new viewModel());
+    var viewModel = new monsterViewModel();
+    ko.applyBindings(viewModel);
 </script>
 </html>
