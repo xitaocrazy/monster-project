@@ -113,13 +113,11 @@ img.icon ~ p {
 .nome-email {
     text-align: left !important;
     padding: 10px;
-    margin-left: 33.33333333%;
-    width: 33.33333333%;
     text-align: center;
 }
 
 .nome-email input{
-    border-radius: 10px;
+    border-radius: 4px;
 }
 
 input[type="text"], input[type="email"] {
