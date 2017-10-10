@@ -643,28 +643,24 @@
             ehNomeValido();
             ehEmailValido();
             if(!self.temErroNoNome() && !self.temErroNoEmail()) {
-                //cadastrar();
-                proximoPasso()
+                cadastrar();
             }
         };
         self.setarTipoDeFamilia = function(tipo){
             var tipoDeFamilia = parseInt(tipo);
             self.tipoDeFamilia(tipoDeFamilia);
-            //salvarTipoDeFamilia();
-            proximoPasso();
+            salvarTipoDeFamilia();
         };
         self.setarRegiao = function(regiao){
             var regiaoDesejada = parseInt(regiao);
             self.regiao(regiao);
-            //salvarRegiao();
-            proximoPasso();
+            salvarRegiao();
         };
         self.setarRenda = function(valor){
             var rendaInformada = parseFloat(valor);
             self.renda(rendaInformada);
             setarOpcoesSelecionadas();
-            //salvarRenda();
-            proximoPasso();
+            salvarRenda();
         };
         self.verDetalhes = function(valor){
             self.resultadoDetalhesDistintos([]);
@@ -716,51 +712,59 @@
         }    
         function cadastrar(){
             var params = {valorParcela: self.valorR$Parcela(), valorImovel: self.valorR$Imovel(), nome: self.nome(), email: self.email()}
-            var url = "http://www.meuprimeiroimovel.com.br/cadastrar.php";
+            var url = "http://www.meuprimeiroimovel.com.br/storeLead";
             $.post(url, params)
                 .done(function(result) {
                     self.id(result.id);
-                    alert('success');
                     proximoPasso();
                 })
                 .fail(function() {
-                    alert('error');
+                    alert('Ops. Algo errado não está certo. Tente novamente');
                 });
         }  
         function salvarTipoDeFamilia(){
             var params = {id: self.id(), tipoFamilia: self.tipoDeFamilia()}
-            var url = "http://www.meuprimeiroimovel.com.br/salvartipodefamilia.php";
+            var url = "http://www.meuprimeiroimovel.com.br/updateLeadFamilia";
             $.post(url, params)
-                .done(function() {
-                    alert('success');
-                    proximoPasso();
+                .done(function(result) {
+                    if (result.updated){
+                        proximoPasso();
+                    }else{
+                        alert('Ops. Algo errado não está certo. Tente novamente');
+                    }
                 })
                 .fail(function() {
-                    alert('error');
+                    alert('Ops. Algo errado não está certo. Tente novamente');
                 });
         }  
         function salvarRegiao(){
             var params = {id: self.id(), regiao: self.regiao()}
-            var url = "http://www.meuprimeiroimovel.com.br/salvarregiao.php";
+            var url = "http://www.meuprimeiroimovel.com.br/updateLeadRegiao";
             $.post(url, params)
-                .done(function() {
-                    alert('success');
-                    proximoPasso();
+                .done(function(result) {
+                    if (result.updated){
+                        proximoPasso();
+                    }else{
+                        alert('Ops. Algo errado não está certo. Tente novamente');
+                    }
                 })
                 .fail(function() {
-                    alert('error');
+                    alert('Ops. Algo errado não está certo. Tente novamente');
                 });
         }  
         function salvarRenda(){
             var params = {id: self.id(), renda: self.renda()}
-            var url = "http://www.meuprimeiroimovel.com.br/salvarrenda.php";
+            var url = "http://www.meuprimeiroimovel.com.br/updateLeadRenda";
             $.post(url, params)
-                .done(function() {
-                    alert('success');
-                    proximoPasso();
+                .done(function(result) {
+                    if (result.updated){
+                        proximoPasso();
+                    }else{
+                        alert('Ops. Algo errado não está certo. Tente novamente');
+                    }
                 })
                 .fail(function() {
-                    alert('error');
+                    alert('Ops. Algo errado não está certo. Tente novamente');
                 });
         } 
         function compararValores(valorMedio, valorParcela, valorPeriodo, valorImovel){
