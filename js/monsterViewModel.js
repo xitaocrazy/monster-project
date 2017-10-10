@@ -358,7 +358,22 @@ function monsterViewModel () {
             });
     }  
     function salvarTipoDeFamilia(){
-        var params = {id: self.id(), tipoFamilia: self.tipoDeFamilia()}
+        var tipo = '';
+        switch (self.tipoDeFamilia()){
+            case 1:
+                tipo = 'Uma pessoa';
+                break;
+            case 2:
+                tipo = 'Casal sem filhos';
+                break;
+            case 3:
+                tipo = 'Casal com um filho';
+                break;
+            case 4:
+                tipo = 'Casal com mais de um filho';
+                break;
+        }
+        var params = {id: self.id(), tipoFamilia: tipo}
         var url = "http://www.meuprimeiroimovel.com.br/updateLeadFamilia";
         $.post(url, params)
             .done(function(result) {
@@ -373,7 +388,8 @@ function monsterViewModel () {
             });
     }  
     function salvarRegiao(){
-        var params = {id: self.id(), regiao: self.regiao()}
+        var regiaoSelecionada = regioes[self.regiao()];
+        var params = {id: self.id(), regiao: regiaoSelecionada}
         var url = "http://www.meuprimeiroimovel.com.br/updateLeadRegiao";
         $.post(url, params)
             .done(function(result) {
