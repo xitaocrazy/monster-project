@@ -248,6 +248,17 @@
             <p>Veja os <span class="text-highlighted">resultados</span> que combinam com você!</p>
             <br />
         </div>
+        <div class="row justify-content-center detalhes">
+            <div class="col-xs-12 col-sm-12 col-md-10 col-md-offset-1 col-lg-8 col-lg-offset-2">
+                <div>
+                    <ul class="list-unstyled" data-bind="foreach: opcoesSelecionadas">
+                        <li>
+                            <b data-bind="text: $data"></b>
+                        </li>
+                    </ul>
+                </div>               
+            </div>
+        </div>
         <div class="row">
             <div class="col-xs-12 col-sm-12 col-md-10 col-md-offset-1 col-lg-8 col-lg-offset-2 table-responsive">
                 <table class="table table-hover">
@@ -320,7 +331,6 @@
                 </table>
             </div>
         </div>
-
         <div class="row justify-content-center detalhes">
             <div class="col-xs-12 col-sm-12 col-md-10 col-md-offset-1 col-lg-8 col-lg-offset-2">
                 <div>
@@ -359,7 +369,8 @@
 <script type="text/javascript">
     var viewModel = function () {
         self = this;
-                           //[continente, norte, centro, leste, sul ]
+        
+        var regioes =        ['continente', 'norte', 'centro', 'leste', 'sul'];
         var casinhaValores = [200000, 160000, 220000, 320000, 280000];
         var casaValores =    [350000, 200000, 450000, 400000, 350000];
         var casaoValores =   [900000, 550000, 1100000, 1500000, 1000000];        
@@ -378,6 +389,7 @@
         self.temErroNoEmail = ko.observable(false);
         self.resultadoDetalhesDistintos = ko.observableArray([]);
         self.resultadoDetalhes = ko.observableArray([]);
+        self.opcoesSelecionadas = ko.observableArray([]);
         self.dummyObservable = ko.observable();
         self.valorEntrada = ko.observable(0);
         
@@ -650,6 +662,7 @@
         self.setarRenda = function(valor){
             var rendaInformada = parseFloat(valor);
             self.renda(rendaInformada);
+            setarOpcoesSelecionadas();
             //salvarRenda();
             proximoPasso();
         };
@@ -657,15 +670,19 @@
             self.resultadoDetalhesDistintos([]);
             self.resultadoDetalhes([]);
 
-            if (self.tipoDeFamilia() > 1){
-                self.resultadoDetalhes.push("Você já é um casal, recomendamos uma casa média ou grande.")
+            if (self.tipoDeFamilia() === 1){
+                self.resultadoDetalhes.push("Você é solteiro, recomendamos uma casa pequena ou média (no máximo 2 quartos).")
             }
-            if (self.tipoDeFamilia() > 3){
-                self.resultadoDetalhes.push("Você tem uma família bem grande, recomendamos uma casa grande.")
+            if (self.tipoDeFamilia() === 2){
+                self.resultadoDetalhes.push("Você tem uma família pequena, recomendamos uma casa média (com 2 ou 3 quartos).")
             }
-            if (self.tipoDeFamilia() < 3){
-                self.resultadoDetalhes.push("Você tem uma família pequena ou é solteiro, recomendamos uma casa média ou pequena.")
+            if (self.tipoDeFamilia() === 3){
+                self.resultadoDetalhes.push("Você tem uma família média, recomendamos uma casa média (com 3 ou mais quartos).")
             }
+            if (self.tipoDeFamilia() === 4){
+                self.resultadoDetalhes.push("Você tem uma família grande, recomendamos uma casa grande (com 4 ou mais quartos).")
+            }
+            
             self.dummyObservable.notifySubscribers();
             
             var detalhes = self.resultadoDetalhes();
@@ -772,6 +789,34 @@
                 }
             }            
             return true;
+        }
+        function setarOpcoesSelecionadas(){
+            self.opcoesSelecionadas([]);
+            if (self.valorR$Imovel() !== 0){
+                self.opcoesSelecionadas.push('Valor do imóvel:  R$' + self.valorR$Imovel() + ',00');
+                self.opcoesSelecionadas.push('Valor da entrada: R$' + self.valorEntrada() + ',00');
+            }else{
+                self.opcoesSelecionadas.push('Valor da parcela: R$' + self.valorR$Parcela() + ',00')
+            }
+
+            switch (self.tipoDeFamilia()){
+                case 1:
+                    self.opcoesSelecionadas.push('Família: Somente uma pessoa.')
+                    break;
+                case 2:
+                    self.opcoesSelecionadas.push('Família: Casal sem filhos.')
+                    break;
+                case 3:
+                    self.opcoesSelecionadas.push('Família: Casal com 1 filho.')
+                break;
+                    case 4:
+                    self.opcoesSelecionadas.push('Família: Casal com mais de um filho.')
+                    break;
+            }
+
+            self.opcoesSelecionadas.push('Buscando imóveis na região: ' + regioes[self.regiao()]);
+            self.opcoesSelecionadas.push('Possui uma renda de R$: ' + self.renda() + ',00');
+
         }
         
         $( document ).ready(function() {
