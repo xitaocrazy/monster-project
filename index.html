@@ -225,20 +225,6 @@
         </div>
         <br>
         <div class="row justify-content-center">
-            <!--
-            <div id="mapa" class="col-xs-12 col-sm-12 col-md-8 col-md-offset-2 col-lg-6 col-lg-offset-3">
-                <img src="img/map_floripa.svg" alt="mapa-floripa" class="map" usemap="#floripa" />
-                <map name="floripa">
-                    <area shape="rect" id="Continente" title="Continente" alt="Continente" href="#" coords="0,10,190,585" data-bind="click: setarRegiao.bind($data, 0)" data-maphilight="{&quot;stroke&quot;:false,&quot;fillColor&quot;:&quot;F5775B&quot;,&quot;fillOpacity&quot;:0.6}" >
-                    <area shape="rect" id="Continente" title="Norte" alt="Norte" href="#" coords="325,25,520,175" data-bind="click: setarRegiao.bind($data, 1)" data-maphilight="{&quot;stroke&quot;:false,&quot;fillColor&quot;:&quot;F5775B&quot;,&quot;fillOpacity&quot;:0.6}">
-                    <area shape="rect" id="Continente" title="Centro" alt="Centro" href="#" coords="385,355,300,175" data-bind="click: setarRegiao.bind($data, 2)" data-maphilight="{&quot;stroke&quot;:false,&quot;fillColor&quot;:&quot;F5775B&quot;,&quot;fillOpacity&quot;:0.6}">
-                    <area shape="rect" id="Continente" title="Leste" alt="Leste" href="#" coords="385,355,465,175" data-bind="click: setarRegiao.bind($data, 3)" data-maphilight="{&quot;stroke&quot;:false,&quot;fillColor&quot;:&quot;F5775B&quot;,&quot;fillOpacity&quot;:0.6}">
-                    <area shape="rect" id="Continente" title="Sul" alt="Sul" href="#" coords="280,535,400,355" data-bind="click: setarRegiao.bind($data, 4)" data-maphilight="{&quot;stroke&quot;:false,&quot;fillColor&quot;:&quot;F5775B&quot;,&quot;fillOpacity&quot;:0.6}">
-                </map>
-                    
-            </div>
-            -->
-
             <div id="mapa" class="col-xs-12 col-sm-12 col-md-8 col-md-offset-2 col-lg-6 col-lg-offset-3">
                 <svg id="map_floripa" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 882 752.16">
                   <defs>
@@ -281,28 +267,28 @@
                     </style>
                   </defs>
                   <title>map_floripa</title>
-                  <g id="bt_centro">
+                  <g id="bt_centro" data-bind="click: setarRegiao.bind($data, 2)">
                     <circle class="cls-1" cx="482.6" cy="321.96" r="8.38"/>
                     <circle class="cls-2" cx="482.6" cy="321.96" r="16.62"/>
                   </g>
-                  <g id="bt_leste">
+                  <g id="bt_leste" data-bind="click: setarRegiao.bind($data, 3)">
                     <circle class="cls-1" cx="585.6" cy="305.34" r="8.38"/>
                     <circle class="cls-2" cx="585.6" cy="305.34" r="16.62"/>
                   </g>
-                  <g id="bt_sul">
+                  <g id="bt_sul" data-bind="click: setarRegiao.bind($data, 4)">
                     <circle class="cls-1" cx="462.89" cy="534.17" r="8.38"/>
                     <circle class="cls-2" cx="462.89" cy="534.17" r="16.62"/>
                   </g>
-                  <g id="bt_continente">
+                  <g id="bt_continente" data-bind="click: setarRegiao.bind($data, 0)">
                     <circle class="cls-1" cx="143.07" cy="305.34" r="8.38"/>
                     <circle class="cls-2" cx="143.07" cy="305.34" r="16.62"/>
                   </g>
-                  <g id="bt_norte">
+                  <g id="bt_norte" data-bind="click: setarRegiao.bind($data, 1)">
                     <circle class="cls-1" cx="580.97" cy="151.51" r="8.38"/>
                     <circle class="cls-2" cx="580.97" cy="151.51" r="16.62"/>
                   </g>
                   <g id="hover_shapes">
-                    <g id="norte" href="#" data-bind="click: setarRegiao.bind($data, 0)" data-bind="click: setarRegiao.bind($data, 1)">
+                    <g id="norte" href="#" data-bind="click: setarRegiao.bind($data, 1)">
                       <polygon id="shape" class="cls-1" points="707.83 120.21 628.45 32.6 459.5 129.06 475.54 240.88 626.95 240.88 707.83 120.21"/>
                       <g id="text">
                         <g>
