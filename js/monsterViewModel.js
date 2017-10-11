@@ -274,28 +274,36 @@ function monsterViewModel () {
         ehNomeValido();
         ehEmailValido();
         if(!self.temErroNoNome() && !self.temErroNoEmail()) {
-            //proximoPasso();
-            cadastrar();
+            proximoPasso();
+            //ga('set', 'page', '/tipoDeFamilia');
+            //ga('send', 'pageview');
+            //cadastrar();
         }
     };
     self.setarTipoDeFamilia = function(tipo){
         var tipoDeFamilia = parseInt(tipo);
         self.tipoDeFamilia(tipoDeFamilia);
-        //proximoPasso();
-        salvarTipoDeFamilia();
+        proximoPasso();
+        //ga('set', 'page', '/regiao');
+        //ga('send', 'pageview');
+        //salvarTipoDeFamilia();
     };
     self.setarRegiao = function(regiao){
         var regiaoDesejada = parseInt(regiao);
         self.regiao(regiao);
-        //proximoPasso();
-        salvarRegiao();
+        proximoPasso();
+        //ga('set', 'page', '/renda');
+        //ga('send', 'pageview');
+        //salvarRegiao();
     };
     self.setarRenda = function(valor){
         var rendaInformada = parseFloat(valor);
         self.renda(rendaInformada);
         setarOpcoesSelecionadas();
-        //proximoPasso();
-        salvarRenda();
+        proximoPasso();
+        //ga('set', 'page', '/resultado');
+        //ga('send', 'pageview');
+        //salvarRenda();
     };
     self.verDetalhes = function(valor){
         self.resultadoDetalhesDistintos([]);
