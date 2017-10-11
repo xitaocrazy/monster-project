@@ -274,21 +274,21 @@ function monsterViewModel () {
         ehNomeValido();
         ehEmailValido();
         if(!self.temErroNoNome() && !self.temErroNoEmail()) {            
-            //cadastrar();                        
-            proximoPasso();
+            cadastrar();                        
+            //proximoPasso();
         }
     };
     self.setarTipoDeFamilia = function(tipo){
         var tipoDeFamilia = parseInt(tipo);
         self.tipoDeFamilia(tipoDeFamilia);
-        //salvarTipoDeFamilia();
-        proximoPasso();
+        salvarTipoDeFamilia();
+        //proximoPasso();
     };
     self.setarRegiao = function(regiao){
         var regiaoDesejada = parseInt(regiao);
         self.regiao(regiao);
-        //salvarRegiao();
-        proximoPasso();
+        salvarRegiao();
+        //proximoPasso();
     };
     self.setarRenda = function(valor){
         var rendaInformada = parseFloat(valor);
@@ -296,8 +296,8 @@ function monsterViewModel () {
         setarOpcoesSelecionadas();
         setarSimulacoes();
         setarDetalhes();
-        //salvarRenda();
-        proximoPasso();
+        salvarRenda();
+        //proximoPasso();
         
     };   
     self.reload = function(){
@@ -330,8 +330,7 @@ function monsterViewModel () {
         $.getJSON("/storeLead", {valorParcela: self.valorR$Parcela(), valorImovel: self.valorR$Imovel(), nome: self.nome(), email: self.email() })
             .done(function(result) {
                 self.id(result.id);
-                //ga('set', 'page', '/pagina-familia');
-                //ga('send', 'pageview');
+                setAnalitycsPage('/pagina-familia');
                 proximoPasso();
             })
             .fail(function() {
@@ -357,8 +356,7 @@ function monsterViewModel () {
         $.getJSON("/updateLeadFamilia", {id: self.id(), tipoFamilia: tipo})
             .done(function(result) {
                 if (result.updated){
-                    //ga('set', 'page', '/pagina-regiao');
-                    //ga('send', 'pageview');
+                    setAnalitycsPage('/pagina-regiao');
                     proximoPasso();
                 }else{
                     alert('Ops. Algo errado não está certo. Tente novamente');
@@ -373,8 +371,7 @@ function monsterViewModel () {
         $.getJSON("/updateLeadRegiao", {id: self.id(), regiao: regiaoSelecionada})
             .done(function(result) {
                 if (result.updated){
-                    //ga('set', 'page', '/pagina-renda');
-                    //ga('send', 'pageview');
+                    setAnalitycsPage('/pagina-renda');
                     proximoPasso();
                 }else{
                     alert('Ops. Algo errado não está certo. Tente novamente');
@@ -388,8 +385,7 @@ function monsterViewModel () {
         $.getJSON("/updateLeadRenda", {id: self.id(), renda: self.renda()})
             .done(function(result) {
                 if (result.updated){
-                    //ga('set', 'page', '/pagina-resultado');
-                    //ga('send', 'pageview');
+                    setAnalitycsPage('/pagina-resultado');
                     proximoPasso();
                 }else{
                     alert('Ops. Algo errado não está certo. Tente novamente');
@@ -507,6 +503,9 @@ function monsterViewModel () {
         })
         self.resultadoDetalhes(detalhes);
     };
+    function setAnalitycsPage(page){
+        gtag('event', 'page_view', { 'send_to': page });
+    }
     
     $(function() {
         $('.map').maphilight();
@@ -518,8 +517,7 @@ function monsterViewModel () {
     });
 
     $( document ).ready(function() {
-        //ga('set', 'page', '/pagina-inicial');
-        //ga('send', 'pageview');
+        setAnalitycsPage('/pagina-inicial');
         self.deveCarregarMapa(false);
     });
 }
