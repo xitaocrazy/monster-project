@@ -56,7 +56,7 @@
     <div class="container-fluid">
         <div class="row">
             <div class="col-xs-12 col-sm-12 col-md-8 col-md-offset-2 col-lg-6 col-lg-offset-3">
-                <img class="brand-header" src="img/marca_header.svg">
+                <img class="brand-header" src="img/marca_header.svg" data-bind="click: reload">
                 <h1><span class="text-highlighted">Planeje</span> a comprar do seu <span class="text-highlighted">primeiro imóvel</span></h1>
             </div>
         </div>
@@ -424,8 +424,7 @@
     <!-- Resultado -->
     <section id="section-resultado" class="container" data-bind="visible: passo() === 5">
         <div class="row text">
-            <p>Veja os <span class="text-highlighted">resultados</span> que combinam com você!</p>
-            <br />
+            <p>Perfil do imóvel <span class="text-highlighted">desejado!</span></p>
         </div>
         <div class="row justify-content-center detalhes">
             <div class="col-xs-12 col-sm-12 col-md-10 col-md-offset-1 col-lg-8 col-lg-offset-2">
@@ -437,6 +436,25 @@
                     </ul>
                 </div>               
             </div>
+        </div>        
+        <div class="row text">
+            <p><span class="text-highlighted">Simulações</span> efetudas!</p>
+            <br />
+        </div>
+        <div class="row justify-content-center detalhes">
+            <div class="col-xs-12 col-sm-12 col-md-10 col-md-offset-1 col-lg-8 col-lg-offset-2">
+                <div>
+                    <ul class="list-unstyled" data-bind="foreach: simulacoes">
+                        <li>
+                            <b data-bind="text: $data"></b>
+                        </li>
+                    </ul>
+                </div>               
+            </div>
+        </div>
+        <div class="row text">
+            <p>Veja os <span class="text-highlighted">resultados</span> para sua busca!</p>
+            <br />
         </div>
         <div class="row">
             <div class="col-xs-12 col-sm-12 col-md-10 col-md-offset-1 col-lg-8 col-lg-offset-2 table-responsive">
@@ -467,13 +485,16 @@
                                 <p>menos de 5 anos</p>
                             </th>
                             <td>
-                                <img data-bind="visible: casinha5AnosAtivo" class="img" src="img/casinha-branca.png" >
+                                <img data-bind="visible: casinha5AnosAtivo" class="img" src="img/ic_good_plan.svg" >
+                                <img data-bind="visible: casinha5AnosAtivo() === false" class="img" src="img/ic_bad_plan.svg" >
                             </td>
                             <td>
-                                <img data-bind="visible: casa5AnosAtivo" class="img" src="img/casinha-branca.png" >
+                                <img data-bind="visible: casa5AnosAtivo" class="img" src="img/ic_good_plan.svg" >
+                                <img data-bind="visible: casa5AnosAtivo() === false" class="img" src="img/ic_bad_plan.svg" >
                             </td>
                             <td>
-                                <img data-bind="visible: casao5AnosAtivo" class="img" src="img/casinha-branca.png" >
+                                <img data-bind="visible: casao5AnosAtivo" class="img" src="img/ic_good_plan.svg" >
+                                <img data-bind="visible: casao5AnosAtivo() === false" class="img" src="img/ic_bad_plan.svg" >
                             </td>
                         </tr>
                         <tr>
@@ -482,13 +503,16 @@
                                 <p>menos de 10 anos</p>
                             </th>
                             <td>
-                                <img data-bind="visible: casinha10AnosAtivo" class="img" src="img/casinha-branca.png" >
+                                <img data-bind="visible: casinha10AnosAtivo" class="img" src="img/ic_good_plan.svg" >
+                                <img data-bind="visible: casinha10AnosAtivo() === false" class="img" src="img/ic_bad_plan.svg" >
                             </td>
                             <td>
-                                <img data-bind="visible: casa10AnosAtivo" class="img" src="img/casinha-branca.png" >
+                                <img data-bind="visible: casa10AnosAtivo" class="img" src="img/ic_good_plan.svg" >
+                                <img data-bind="visible: casa10AnosAtivo() === false" class="img" src="img/ic_bad_plan.svg" >
                             </td>
                             <td>
-                                <img data-bind="visible: casao10AnosAtivo" class="img" src="img/casinha-branca.png" >
+                                <img data-bind="visible: casao10AnosAtivo" class="img" src="img/ic_good_plan.svg" >
+                                <img data-bind="visible: casao10AnosAtivo() === false" class="img" src="img/ic_bad_plan.svg" >
                             </td>
                         </tr>
                         <tr>
@@ -497,24 +521,30 @@
                                 <p>10 anos ou mais</p>
                             </th>
                             <td>
-                                <img data-bind="visible: casinha20AnosAtivo" class="img" src="img/casinha-branca.png" >
+                                <img data-bind="visible: casinha20AnosAtivo" class="img" src="img/ic_good_plan.svg" >
+                                <img data-bind="visible: casinha20AnosAtivo() === false" class="img" src="img/ic_bad_plan.svg" >
                             </td>
                             <td>
-                                <img data-bind="visible: casa20AnosAtivo" class="img" src="img/casinha-branca.png" >
+                                <img data-bind="visible: casa20AnosAtivo" class="img" src="img/ic_good_plan.svg" >
+                                <img data-bind="visible: casa20AnosAtivo() === false" class="img" src="img/ic_bad_plan.svg" >
                             </td>
                             <td>
-                                <img data-bind="visible: casao20AnosAtivo" class="img" src="img/casinha-branca.png" >
+                                <img data-bind="visible: casao20AnosAtivo" class="img" src="img/ic_good_plan.svg" >
+                                <img data-bind="visible: casao20AnosAtivo() === false" class="img" src="img/ic_bad_plan.svg" >
                             </td>
                         </tr>
                     </tbody>
                 </table>
             </div>
+        </div>                
+        <div class="row text">
+            <p>Entenda os <span class="text-highlighted">resultados</span> que não combinam com você!</p>
+            <br />
         </div>
         <div class="row justify-content-center detalhes">
             <div class="col-xs-12 col-sm-12 col-md-10 col-md-offset-1 col-lg-8 col-lg-offset-2">
                 <div>
-                    <button class="btn btn-sm" data-bind="click: verDetalhes">DETALHES</button>
-                    <ul class="list-unstyled" data-bind="foreach: resultadoDetalhesDistintos">
+                    <ul class="list-unstyled" data-bind="foreach: resultadoDetalhes">
                         <li>
                             <b data-bind="text: $data"></b>
                         </li>
@@ -525,12 +555,15 @@
         <div class="row justify-content-center">
             <div class="col-xs-12 col-sm-12 col-md-10 col-md-offset-1 col-lg-8 col-lg-offset-2">
                 <div>
-                    <p>&nbsp;</p><p>&nbsp;</p>
+                    <br>
                     <h2>Organize sua vida <span class="text-highlighted">financeira</span></h2>
                     <p>Baixe a planilha "Orçamento Familiar" e comece a planejar a compra do seu primeiro imóvel!</p>
                     <p>&nbsp;</p>
-                    <a id="baixar" class="btn" href="content/planilha_orcamento_familiar.xlsx" download>BAIXAR PLANILHA</a>
-                </div>                
+                    <a id="baixar" class="btn" href="content/planilha_orcamento_familiar.xlsx" download>BAIXAR PLANILHA</a>                    
+                </div> 
+                <div>
+                    <button class="btn btn-xs" data-bind="click: reload">Refazer simulação</button>
+                </div>               
             </div>
         </div>
     </section>    
